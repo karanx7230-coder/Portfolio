@@ -5,7 +5,6 @@ import { PERSONAL_INFO } from "../data/personalInfo";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import SplitText from "./ReactBits/SplitText";
 import BlurText from "./ReactBits/BlurText";
-import { HeroMeta } from "./HeroMeta";
 
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -103,7 +102,14 @@ export const Hero: React.FC = () => {
             </motion.div>
           </div>
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <HeroMeta />
+            <div className="flex flex-col items-center lg:items-end gap-3 text-right">
+              <span className="font-mono text-xs tracking-[0.24em] text-[#C5A059]">
+                RN01 / 06
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#59605D]">
+                MOBILE / CRAFTMOHALI · INDIA
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>
