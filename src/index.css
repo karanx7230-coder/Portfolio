@@ -8,13 +8,13 @@
   }
 
   html {
-    color-scheme: dark;
+    color-scheme: light;
     font-family: var(--font-sans);
   }
 
   body {
-    background-color: #0B0B0D;
-    color: #E6E1D5;
+    background-color: #F5F5F7;
+    color: #1D1D1F;
     overflow-x: hidden;
   }
 }
@@ -32,19 +32,20 @@
 }
 
 .bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.08) 0%, rgba(122, 34, 52, 0.05) 40%, rgba(11, 11, 13, 0) 75%);
+  background: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.16) 0%, rgba(30, 71, 56, 0.06) 45%, rgba(245, 245, 247, 0) 75%);
 }
 
 .bg-radial-glow-bottom {
-  background: radial-gradient(circle at 50% 100%, rgba(30, 71, 56, 0.08) 0%, rgba(197, 160, 89, 0.04) 45%, rgba(11, 11, 13, 0) 80%);
+  background: radial-gradient(circle at 50% 100%, rgba(30, 71, 56, 0.1) 0%, rgba(197, 160, 89, 0.08) 45%, rgba(245, 245, 247, 0) 80%);
 }
 
 /* Quiet Luxury Glass & Card Utilities */
 .glass-card {
-  background: rgba(18, 19, 23, 0.75);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.18);
+  border-radius: 1.25rem;
 }
 
 .glass-card-hover {
@@ -52,9 +53,9 @@
 }
 
 .glass-card-hover:hover {
-  background: rgba(23, 25, 31, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   border-color: rgba(197, 160, 89, 0.3);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(197, 160, 89, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(30, 71, 56, 0.18), 0 0 20px -5px rgba(197, 160, 89, 0.12);
 }
 
 /* Gold Gradient Text */
@@ -85,11 +86,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0B0D;
+  background: #E8E8EC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1C1D24;
+  background: #C8C8CE;
   border-radius: 3px;
 }
 
@@ -110,4 +111,25 @@ code, pre, .font-mono {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Keep legacy section utilities aligned with the light portfolio palette. */
+[class*="bg-[#0B0B0D]"], [class*="bg-[#121317]"], [class*="bg-[#07070a]"] {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+[class*="text-[#F5F2EB]"], [class*="text-[#E6E1D5]"], [class*="text-[#D6D1C4]"], [class*="text-slate-200"] {
+  color: #1d1d1f !important;
+}
+
+[class*="text-[#9C968A]"] {
+  color: #59605d !important;
+}
+
+[class*="rounded-none"] {
+  border-radius: 1rem !important;
+}
+
+[class*="border-[#C5A059]"] {
+  border-color: rgba(197, 160, 89, 0.24) !important;
 }

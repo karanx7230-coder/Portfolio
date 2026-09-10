@@ -1,20 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, ArrowRight, Layers } from 'lucide-react';
-import type { Project } from '../data/projects';
-import { GithubIcon } from './SocialIcons';
+import React from "react";
+import { motion } from "framer-motion";
+import { ExternalLink, ArrowRight, Layers } from "lucide-react";
+import type { Project } from "../data/projects";
+import { GithubIcon } from "./SocialIcons";
 
 interface ProjectCardProps {
   project: Project;
   onOpenModal: (project: Project) => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  onOpenModal,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8 }}
       className="group glass-card rounded-none overflow-hidden border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col hover:border-[#C5A059]/50 transition-all duration-500"
     >
@@ -27,7 +30,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-out"
+          className="w-full h-full object-contain object-center group-hover:scale-103 transition-transform duration-700 ease-out"
         />
         {/* Subtle Vignette Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-transparent to-transparent opacity-70" />
@@ -57,7 +60,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }
           </h3>
 
           {project.subtitle && (
-            <p className="text-xs font-mono uppercase tracking-wider text-[#C5A059]/90 mb-4">{project.subtitle}</p>
+            <p className="text-xs font-mono uppercase tracking-wider text-[#C5A059]/90 mb-4">
+              {project.subtitle}
+            </p>
           )}
 
           <p className="text-[#D6D1C4] text-sm leading-relaxed mb-6 font-light line-clamp-3">
