@@ -160,8 +160,12 @@ code, pre, .font-mono {
   color: #1d1d1f !important;
 }
 
+[class*="text-[#59605D]"] {
+  color: #3f4443 !important;
+}
+
 [class*="text-[#9C968A]"] {
-  color: #59605d !important;
+  color: #5b615f !important;
 }
 
 [class*="rounded-none"] {

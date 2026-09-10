@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Copy, Check, MapPin, ArrowUpRight, Star } from "lucide-react";
+import { Mail, Phone, Copy, Check, MapPin, ArrowUpRight, ArrowDown, Star } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import { ScrollDots } from "./ScrollDots";
@@ -174,6 +174,20 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* Single elegant list — no boxes */}
+        <div className="flex justify-center mb-12">
+          <motion.a
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            href="/resume.pdf"
+            download="Karanpreet-Singh-Resume.pdf"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#0B0B0D] text-white font-mono text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#1E4738] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-300"
+          >
+            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            <span>Download Resume</span>
+          </motion.a>
+        </div>
         <div className="max-w-3xl mx-auto border-t border-[#1D1D1F]/10">
           {rows.map((row, idx) => (
             <motion.div
