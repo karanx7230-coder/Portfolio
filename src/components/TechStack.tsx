@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { TECH_STACK } from "../data/technologies";
 import ShinyText from "./ReactBits/ShinyText";
+import { CodeTerminal } from "./CodeTerminal";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Smartphone,
@@ -99,6 +100,8 @@ export const TechStack: React.FC = () => {
             </span>
           </motion.div>
         </div>
+
+        <CodeTerminal />
 
         {/* Styled editorial list — still no boxes */}
         <div className="border-t border-[#1D1D1F]/10">

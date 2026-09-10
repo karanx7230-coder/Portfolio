@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Mail, Phone, Copy, Check, MapPin, ArrowUpRight, Star } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
+import { ScrollDots } from "./ScrollDots";
+import { AtomMark } from "./AtomMark";
 import ShinyText from "./ReactBits/ShinyText";
 
 export const Contact: React.FC = () => {
@@ -127,6 +129,13 @@ export const Contact: React.FC = () => {
     >
       {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-radial-glow-bottom pointer-events-none" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-28 top-1/2 -translate-y-1/2 opacity-[0.07]"
+      >
+        <AtomMark size={520} stroke="#1E4738" spinSeconds={40} />
+      </div>
+      <ScrollDots />
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
         {/* Header */}

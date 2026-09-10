@@ -13,6 +13,7 @@ export const Hero: React.FC = () => {
   });
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const opacityParallax = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const yAtom = useTransform(scrollYProgress, [0, 1], [0, -70]);
 
   return (
     <section
@@ -80,7 +81,7 @@ export const Hero: React.FC = () => {
             >
               <a
                 href="#projects"
-                className="group relative inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#0B0B0D] hover:bg-[#1E4738] text-white font-mono text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-md"
+                className="group relative inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#0B0B0D] hover:bg-[#1E4738] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] text-white font-mono text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-md"
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -89,7 +90,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 hover:border-[#1D1D1F]/40 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 hover:border-[#1D1D1F]/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
               >
                 <GithubIcon className="w-3.5 h-3.5 text-[#1E4738]" />
                 <span>GitHub</span>
@@ -98,7 +99,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 hover:border-[#1D1D1F]/40 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 hover:border-[#1D1D1F]/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
               >
                 <LinkedinIcon className="w-3.5 h-3.5 text-[#1E4738]" />
                 <span>LinkedIn</span>
@@ -109,6 +110,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            style={{ y: yAtom }}
             className="lg:col-span-5 w-full flex flex-col items-center gap-5"
           >
             <div className="flex items-center gap-3 font-mono text-xs tracking-[0.24em] text-[#59605D]">

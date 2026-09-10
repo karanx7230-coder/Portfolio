@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import ShinyText from "./ReactBits/ShinyText";
+import { ScrollDots } from "./ScrollDots";
 
 const highlightCards = [
   {
@@ -47,7 +48,8 @@ const highlightCards = [
 export const About: React.FC = () => {
   return (
     <section id="about" className="pt-24 sm:pt-28 pb-14 sm:pb-16 relative scroll-mt-16">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+      <ScrollDots />
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 relative">
         {/* Section Title */}
         <div className="flex flex-col items-start mb-16">
           <motion.span

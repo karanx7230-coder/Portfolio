@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 
@@ -15,6 +15,15 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [hidden, setHidden] = useState(false);
+  const menuOpenRef = useRef(mobileMenuOpen);
+  menuOpenRef.current = mobileMenuOpen;
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setHidden(y > prev && y > 180 && !menuOpenRef.current);
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,8 +60,8 @@ export const Navbar: React.FC = () => {
   return (
     <motion.header
       initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      animate={{ y: hidden ? "-110%" : "0%", opacity: 1 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white/90 backdrop-blur-md py-4 shadow-[0_18px_40px_-24px_rgba(30,71,56,0.35)] border-b border-[#C5A059]/15"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { PROJECTS, CONTRIBUTIONS } from "../data/projects";
 import type { Project } from "../data/projects";
@@ -7,6 +7,8 @@ import { ProjectModal } from "./ProjectModal";
 import { SectionHeader } from "./SectionHeader";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import { AtomMark } from "./AtomMark";
+import { ScrollDots } from "./ScrollDots";
+import { GhostWord } from "./GhostWord";
 import { PERSONAL_INFO } from "../data/personalInfo";
 
 interface StudyContent {
@@ -105,12 +107,12 @@ const CaseStudy: React.FC<{
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="flex items-center justify-between border-b border-[#1D1D1F]/10 py-3.5"
+              className="group flex items-center justify-between border-b border-[#1D1D1F]/10 py-3.5"
             >
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#1D1D1F]">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#1D1D1F] group-hover:text-[#1E4738] transition-colors">
                 {h}
               </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059] transition-transform duration-300 group-hover:scale-[1.8]" />
             </motion.li>
           ))}
         </ul>
@@ -124,7 +126,7 @@ const CaseStudy: React.FC<{
         >
           <button
             onClick={() => onOpen(project)}
-            className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#0B0B0D] text-white font-mono text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#1E4738] transition-colors duration-300"
+            className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#0B0B0D] text-white font-mono text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#1E4738] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-300"
           >
             <span>View Case Study</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -133,7 +135,7 @@ const CaseStudy: React.FC<{
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] hover:border-[#1D1D1F]/40 transition-colors duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] hover:border-[#1D1D1F]/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-300"
           >
             <GithubIcon className="w-4 h-4" />
             <span>GitHub</span>
@@ -145,12 +147,31 @@ const CaseStudy: React.FC<{
 };
 
 const DeveloperCard: React.FC = () => {
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const rotateX = useSpring(tiltX, { stiffness: 150, damping: 18 });
+  const rotateY = useSpring(tiltY, { stiffness: 150, damping: 18 });
+
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    tiltY.set(((e.clientX - rect.left) / rect.width - 0.5) * 8);
+    tiltX.set(-((e.clientY - rect.top) / rect.height - 0.5) * 8);
+  };
+  const handleLeave = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7 }}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+      style={{ rotateX, rotateY, transformPerspective: 1000 }}
       className="relative overflow-hidden rounded-[2rem] bg-[#0B0B0D] px-8 py-10 sm:px-12 sm:py-12 my-6"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(197,160,89,0.22)_0%,transparent_55%)]" />
@@ -178,7 +199,7 @@ const DeveloperCard: React.FC = () => {
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-mono text-xs uppercase tracking-[0.15em] hover:border-[#C5A059] hover:text-[#D4AF37] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-mono text-xs uppercase tracking-[0.15em] hover:border-[#C5A059] hover:text-[#D4AF37] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
           >
             <GithubIcon className="w-4 h-4" />
             <span>GitHub</span>
@@ -187,7 +208,7 @@ const DeveloperCard: React.FC = () => {
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-mono text-xs uppercase tracking-[0.15em] hover:border-[#C5A059] hover:text-[#D4AF37] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-mono text-xs uppercase tracking-[0.15em] hover:border-[#C5A059] hover:text-[#D4AF37] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
           >
             <LinkedinIcon className="w-4 h-4" />
             <span>LinkedIn</span>
@@ -202,8 +223,10 @@ export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="pt-14 sm:pt-16 pb-24 sm:pb-28 relative scroll-mt-16">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+    <section id="projects" className="pt-14 sm:pt-16 pb-24 sm:pb-28 relative scroll-mt-16 overflow-hidden">
+      <GhostWord word="Build" className="top-6 right-0 text-[clamp(6rem,20vw,15rem)]" />
+      <ScrollDots />
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 relative">
         <SectionHeader
           eyebrow="Selected work"
           title="Projects"

@@ -1,11 +1,27 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Calendar, MapPin, Award, CheckCircle2, Star } from "lucide-react";
+import React, { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { Calendar, MapPin, Award, CheckCircle2, Star, Smartphone, Rocket } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import ShinyText from "./ReactBits/ShinyText";
 
+const TRAINING_BADGES = [
+  { icon: Calendar, text: "Mar – Sep 2026" },
+  { icon: Award, text: "Certificate · Apptechies" },
+  { icon: Smartphone, text: "React Native + Expo" },
+  { icon: Rocket, text: "TestFlight release support" },
+];
+
 export const Experience: React.FC = () => {
   const training = PERSONAL_INFO.training;
+  const listRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ["start 0.85", "end 0.55"],
+  });
+  const railProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 22,
+  });
 
   return (
     <section
@@ -43,6 +59,25 @@ export const Experience: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
+          <div className="mb-10 flex flex-wrap gap-2.5">
+            {TRAINING_BADGES.map((badge, idx) => {
+              const Icon = badge.icon;
+              return (
+                <motion.span
+                  key={badge.text}
+                  initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: idx * 0.07 }}
+                  whileHover={{ y: -3 }}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#1D1D1F]/10 bg-white/70 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.15em] text-[#1E4738] hover:border-[#C5A059]/60 hover:shadow-[0_10px_25px_-12px_rgba(30,71,56,0.5)] transition-shadow"
+                >
+                  <Icon className="w-3.5 h-3.5 text-[#C5A059]" />
+                  {badge.text}
+                </motion.span>
+              );
+            })}
+          </div>
           {/* Main Timeline Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,6 +116,16 @@ export const Experience: React.FC = () => {
               <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A059] mb-4">
                 What I Worked On
               </h4>
+              <div ref={listRef} className="relative pl-5">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-[#1D1D1F]/10"
+                />
+                <motion.span
+                  aria-hidden="true"
+                  style={{ scaleY: railProgress }}
+                  className="absolute left-0 top-1 bottom-1 w-[2px] origin-top rounded-full bg-gradient-to-b from-[#C5A059] to-[#1E4738]"
+                />
               <ul className="divide-y divide-[#1D1D1F]/10 border-y border-[#1D1D1F]/10">
                 {training.responsibilities.map((resp, i) => (
                   <li key={i} className="flex items-start gap-3 py-4">
@@ -91,6 +136,7 @@ export const Experience: React.FC = () => {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
 
             {/* Certificate Badge */}

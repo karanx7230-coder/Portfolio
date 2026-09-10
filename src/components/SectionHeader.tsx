@@ -17,6 +17,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   align = "left",
 }) => {
   const centered = align === "center";
+  const words = title.split(" ");
   return (
     <div
       className={`mb-14 sm:mb-20 ${centered ? "text-center flex flex-col items-center" : "flex flex-col items-start"}`}
@@ -31,23 +32,32 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         <Star className="w-3.5 h-3.5 fill-[#C5A059]" />
         {eyebrow}
       </motion.span>
-      <div className="overflow-hidden">
-        <motion.h2
-          initial={{ y: "110%" }}
-          whileInView={{ y: "0%" }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif text-4xl sm:text-6xl font-normal text-[#1D1D1F] tracking-tight"
-        >
-          {title}
-        </motion.h2>
-      </div>
+      <h2 className="font-serif text-4xl sm:text-6xl font-normal text-[#1D1D1F] tracking-tight">
+        {words.map((word, i) => (
+          <span key={i} className="inline-block overflow-hidden pb-1 -mb-1 align-bottom">
+            <motion.span
+              initial={{ y: "110%" }}
+              whileInView={{ y: "0%" }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.7,
+                delay: i * 0.07,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="inline-block"
+            >
+              {word}
+              {i < words.length - 1 ? "\u00A0" : ""}
+            </motion.span>
+          </span>
+        ))}
+      </h2>
       {sub && (
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className={`mt-4 max-w-xl text-base sm:text-lg font-light leading-relaxed text-[#59605D] ${centered ? "text-center" : ""}`}
         >
           {sub}
