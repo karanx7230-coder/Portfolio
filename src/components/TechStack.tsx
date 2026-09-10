@@ -1,21 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Smartphone, Code2, Server, Layout, Wrench } from 'lucide-react';
-import { TECH_STACK } from '../data/technologies';
+import React from "react";
+import { motion } from "framer-motion";
+import { Smartphone, Code2, Server, Layout, Wrench } from "lucide-react";
+import { TECH_STACK } from "../data/technologies";
+import ShinyText from "./ReactBits/ShinyText";
+import ScrollReveal from "./ReactBits/ScrollReveal";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Smartphone,
   Code2,
   Server,
   Layout,
-  Wrench
+  Wrench,
 };
 
 export const TechStack: React.FC = () => {
   return (
-    <section id="skills" className="py-24 relative scroll-mt-16 bg-[#0B0B0D]/60 border-y border-[#C5A059]/15">
+    <section
+      id="skills"
+      className="py-24 relative scroll-mt-16 bg-[#0B0B0D]/60 border-y border-[#C5A059]/15"
+    >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        
         {/* Section Title */}
         <div className="flex flex-col items-start mb-16">
           <motion.span
@@ -35,10 +39,22 @@ export const TechStack: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
           >
-            Technologies & Frameworks
+            <ShinyText
+              text="Technologies & Frameworks"
+              color="#1E4738"
+              shineColor="#C5A059"
+              speed={5}
+            />
           </motion.h2>
         </div>
 
+        <ScrollReveal
+          containerClassName="mb-8"
+          textClassName="text-[#1E4738]"
+          enableBlur={false}
+        >
+          A considered toolkit for dependable mobile products.
+        </ScrollReveal>
         {/* Tech Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TECH_STACK.map((category, idx) => {
@@ -61,7 +77,9 @@ export const TechStack: React.FC = () => {
                       <h3 className="font-serif text-lg font-normal text-[#F5F2EB] group-hover:text-[#C5A059] transition-colors">
                         {category.title}
                       </h3>
-                      <span className="text-[10px] font-mono text-[#9C968A] uppercase tracking-wider">{category.skills.length} Technologies</span>
+                      <span className="text-[10px] font-mono text-[#9C968A] uppercase tracking-wider">
+                        {category.skills.length} Technologies
+                      </span>
                     </div>
                   </div>
 
@@ -75,8 +93,8 @@ export const TechStack: React.FC = () => {
                         key={skill.name}
                         className={`px-3 py-1 text-xs font-mono transition-colors duration-200 ${
                           skill.featured
-                            ? 'bg-[#0B0B0D] text-[#F5F2EB] border border-[#C5A059]/40'
-                            : 'bg-[#0B0B0D]/60 text-[#D6D1C4] border border-[#C5A059]/15'
+                            ? "bg-[#0B0B0D] text-[#F5F2EB] border border-[#C5A059]/40"
+                            : "bg-[#0B0B0D]/60 text-[#D6D1C4] border border-[#C5A059]/15"
                         }`}
                       >
                         {skill.name}
@@ -86,14 +104,15 @@ export const TechStack: React.FC = () => {
                 </div>
 
                 <div className="mt-8 pt-3 border-t border-[#C5A059]/15 flex items-center justify-between text-[10px] font-mono text-[#9C968A]">
-                  <span className="uppercase tracking-widest">CATEGORY 0{idx + 1}</span>
+                  <span className="uppercase tracking-widest">
+                    CATEGORY 0{idx + 1}
+                  </span>
                   <span className="text-[#C5A059]/80">VERIFIED</span>
                 </div>
               </motion.div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

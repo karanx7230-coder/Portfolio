@@ -1,15 +1,19 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Award, CheckCircle2 } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/personalInfo';
+import React from "react";
+import { motion } from "framer-motion";
+import { Calendar, MapPin, Award, CheckCircle2 } from "lucide-react";
+import { PERSONAL_INFO } from "../data/personalInfo";
+import ShinyText from "./ReactBits/ShinyText";
+import ScrollReveal from "./ReactBits/ScrollReveal";
 
 export const Experience: React.FC = () => {
   const training = PERSONAL_INFO.training;
 
   return (
-    <section id="experience" className="py-24 relative scroll-mt-16 bg-[#0B0B0D]/60 border-y border-[#C5A059]/15">
+    <section
+      id="experience"
+      className="py-24 relative scroll-mt-16 bg-[#0B0B0D]/60 border-y border-[#C5A059]/15"
+    >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16">
           <motion.span
@@ -29,10 +33,22 @@ export const Experience: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
           >
-            Training & Practical Experience
+            <ShinyText
+              text="Training & Practical Experience"
+              color="#1E4738"
+              shineColor="#C5A059"
+              speed={5}
+            />
           </motion.h2>
         </div>
 
+        <ScrollReveal
+          containerClassName="mb-8"
+          textClassName="text-[#1E4738]"
+          enableBlur={false}
+        >
+          Six months of hands-on product development and delivery.
+        </ScrollReveal>
         <div className="max-w-4xl mx-auto">
           {/* Main Timeline Card */}
           <motion.div
@@ -79,7 +95,9 @@ export const Experience: React.FC = () => {
                     className="flex items-start gap-3 p-4 bg-[#0B0B0D] border border-[#C5A059]/15"
                   >
                     <CheckCircle2 className="w-4 h-4 text-[#1E4738] mt-0.5 flex-shrink-0" />
-                    <span className="text-xs text-[#D6D1C4] leading-relaxed font-light">{resp}</span>
+                    <span className="text-xs text-[#D6D1C4] leading-relaxed font-light">
+                      {resp}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -106,7 +124,6 @@ export const Experience: React.FC = () => {
             </div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

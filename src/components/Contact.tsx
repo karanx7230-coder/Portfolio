@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, Copy, Check, MapPin } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/personalInfo';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, Phone, Copy, Check, MapPin } from "lucide-react";
+import { PERSONAL_INFO } from "../data/personalInfo";
+import { GithubIcon, LinkedinIcon } from "./SocialIcons";
+import ShinyText from "./ReactBits/ShinyText";
+import ScrollReveal from "./ReactBits/ScrollReveal";
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -21,12 +23,14 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-28 relative scroll-mt-16 bg-[#0B0B0D]/80 border-t border-[#C5A059]/15">
+    <section
+      id="contact"
+      className="py-28 relative scroll-mt-16 bg-[#0B0B0D]/80 border-t border-[#C5A059]/15"
+    >
       {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-radial-glow-bottom pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
-        
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.span
@@ -46,14 +50,27 @@ export const Contact: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-serif text-4xl sm:text-6xl font-normal text-[#F5F2EB] tracking-tight"
           >
-            Let's Build Something
+            <ShinyText
+              text="Let's Build Something"
+              color="#1E4738"
+              shineColor="#C5A059"
+              speed={5}
+            />
           </motion.h2>
 
           <p className="text-[#D6D1C4] text-base sm:text-lg max-w-xl mt-4 font-light">
-            Have a React Native project, full-time position, or mobile developer opportunity in mind?
+            Have a React Native project, full-time position, or mobile developer
+            opportunity in mind?
           </p>
         </div>
 
+        <ScrollReveal
+          containerClassName="mb-8"
+          textClassName="text-[#1E4738]"
+          enableBlur={false}
+        >
+          Bring a thoughtful mobile idea into focus.
+        </ScrollReveal>
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
           {/* Email */}
@@ -68,8 +85,12 @@ export const Contact: React.FC = () => {
               <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
                 <Mail className="w-4 h-4" />
               </div>
-              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">Direct Email</h3>
-              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">{PERSONAL_INFO.email}</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
+                Direct Email
+              </h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">
+                {PERSONAL_INFO.email}
+              </p>
             </div>
 
             <div className="flex gap-2">
@@ -84,7 +105,11 @@ export const Contact: React.FC = () => {
                 className="p-2 bg-[#0B0B0D] border border-[#C5A059]/30 text-[#9C968A] hover:text-[#C5A059] transition-colors"
                 title="Copy Email"
               >
-                {copiedEmail ? <Check className="w-4 h-4 text-[#1E4738]" /> : <Copy className="w-4 h-4" />}
+                {copiedEmail ? (
+                  <Check className="w-4 h-4 text-[#1E4738]" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
               </button>
             </div>
           </motion.div>
@@ -101,8 +126,12 @@ export const Contact: React.FC = () => {
               <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
                 <GithubIcon className="w-4 h-4" />
               </div>
-              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">GitHub</h3>
-              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">karanx7230-coder</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
+                GitHub
+              </h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">
+                karanx7230-coder
+              </p>
             </div>
 
             <a
@@ -127,8 +156,12 @@ export const Contact: React.FC = () => {
               <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
                 <LinkedinIcon className="w-4 h-4" />
               </div>
-              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">LinkedIn</h3>
-              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">Karanpreet Singh</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
+                LinkedIn
+              </h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">
+                Karanpreet Singh
+              </p>
             </div>
 
             <a
@@ -153,8 +186,12 @@ export const Contact: React.FC = () => {
               <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
                 <Phone className="w-4 h-4" />
               </div>
-              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">Phone / WhatsApp</h3>
-              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">{PERSONAL_INFO.phone}</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
+                Phone / WhatsApp
+              </h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">
+                {PERSONAL_INFO.phone}
+              </p>
             </div>
 
             <div className="flex gap-2">
@@ -169,7 +206,11 @@ export const Contact: React.FC = () => {
                 className="p-2 bg-[#0B0B0D] border border-[#C5A059]/30 text-[#9C968A] hover:text-[#C5A059] transition-colors"
                 title="Copy Phone Number"
               >
-                {copiedPhone ? <Check className="w-4 h-4 text-[#1E4738]" /> : <Copy className="w-4 h-4" />}
+                {copiedPhone ? (
+                  <Check className="w-4 h-4 text-[#1E4738]" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
               </button>
             </div>
           </motion.div>
@@ -180,7 +221,6 @@ export const Contact: React.FC = () => {
           <MapPin className="w-3.5 h-3.5 text-[#C5A059]" />
           <span>{PERSONAL_INFO.location} • Remote & On-site Available</span>
         </div>
-
       </div>
     </section>
   );

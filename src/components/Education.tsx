@@ -1,7 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { BookOpen, Clock, Building2 } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/personalInfo';
+import React from "react";
+import { motion } from "framer-motion";
+import { BookOpen, Clock, Building2 } from "lucide-react";
+import { PERSONAL_INFO } from "../data/personalInfo";
+import ShinyText from "./ReactBits/ShinyText";
 
 export const Education: React.FC = () => {
   const edu = PERSONAL_INFO.education;
@@ -9,7 +10,6 @@ export const Education: React.FC = () => {
   return (
     <section id="education" className="py-24 relative scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16">
           <motion.span
@@ -29,7 +29,12 @@ export const Education: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
           >
-            Academic Education
+            <ShinyText
+              text="Academic Education"
+              color="#1E4738"
+              shineColor="#C5A059"
+              speed={5}
+            />
           </motion.h2>
         </div>
 
@@ -62,14 +67,15 @@ export const Education: React.FC = () => {
             </div>
 
             <div className="w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-[#C5A059]/15 text-right">
-              <span className="text-xs font-mono text-[#9C968A] uppercase tracking-wider block mb-2">Computer Science & Apps</span>
+              <span className="text-xs font-mono text-[#9C968A] uppercase tracking-wider block mb-2">
+                Computer Science & Apps
+              </span>
               <span className="text-[11px] font-mono text-[#1E4738] bg-[#1E4738]/20 px-3 py-1 border border-[#1E4738]/40 uppercase tracking-widest inline-block text-[#2D5D4A]">
                 IN PROGRESS
               </span>
             </div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );
