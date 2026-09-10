@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Smartphone } from 'lucide-react';
 import { PROJECTS } from '../data/projects';
 import type { Project } from '../data/projects';
 import { ProjectCard } from './ProjectCard';
@@ -11,33 +10,29 @@ export const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-24 relative scroll-mt-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
+        <div className="flex flex-col items-start mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-rose-400 text-xs font-mono mb-3"
+            transition={{ duration: 0.6 }}
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
           >
-            <Smartphone className="w-3.5 h-3.5" />
-            <span>PORTFOLIO SHOWCASE</span>
-          </motion.div>
+            03 • PORTFOLIO
+          </motion.span>
 
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
           >
             Featured Mobile Projects
           </motion.h2>
-          <p className="text-slate-400 text-sm max-w-xl mt-3">
-            Real cross-platform applications built with React Native, TypeScript, Expo, Supabase, and Firebase.
-          </p>
         </div>
 
         {/* Projects Grid */}

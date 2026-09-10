@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Copy, Check, Send, MapPin } from 'lucide-react';
+import { Mail, Phone, Copy, Check, MapPin } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/personalInfo';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
@@ -21,165 +21,164 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative scroll-mt-16 bg-slate-950/60 border-t border-slate-800/40">
-      {/* Background Radial Glow */}
+    <section id="contact" className="py-28 relative scroll-mt-16 bg-[#0B0B0D]/80 border-t border-[#C5A059]/15">
+      {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-radial-glow-bottom pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-rose-400 text-xs font-mono mb-3"
+            transition={{ duration: 0.6 }}
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
           >
-            <Send className="w-3.5 h-3.5" />
-            <span>GET IN TOUCH</span>
-          </motion.div>
+            06 • CONTACT
+          </motion.span>
 
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-serif text-4xl sm:text-6xl font-normal text-[#F5F2EB] tracking-tight"
           >
             Let's Build Something
           </motion.h2>
 
-          <p className="text-slate-300 text-base sm:text-lg max-w-xl mt-4">
-            Have a React Native project, full-time position, or mobile developer opportunity in mind? Feel free to connect!
+          <p className="text-[#D6D1C4] text-base sm:text-lg max-w-xl mt-4 font-light">
+            Have a React Native project, full-time position, or mobile developer opportunity in mind?
           </p>
         </div>
 
-        {/* Action Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
-          {/* Email Card */}
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
+          {/* Email */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/90 bg-slate-900/60 flex flex-col justify-between"
+            transition={{ duration: 0.6 }}
+            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-4">
-                <Mail className="w-5 h-5" />
+              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+                <Mail className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-mono text-slate-400 uppercase tracking-wider mb-1">Direct Email</h3>
-              <p className="text-sm font-semibold text-white truncate mb-4">{PERSONAL_INFO.email}</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">Direct Email</h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">{PERSONAL_INFO.email}</p>
             </div>
 
             <div className="flex gap-2">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="flex-1 text-center py-2 px-3 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-mono text-xs font-semibold transition-all"
+                className="flex-1 text-center py-2 px-3 bg-[#C5A059] hover:bg-[#D4AF37] text-[#0B0B0D] font-mono text-xs font-semibold uppercase tracking-wider transition-colors"
               >
-                Send Email
+                Email
               </a>
               <button
                 onClick={handleCopyEmail}
-                className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 hover:text-white transition-all"
+                className="p-2 bg-[#0B0B0D] border border-[#C5A059]/30 text-[#9C968A] hover:text-[#C5A059] transition-colors"
                 title="Copy Email"
               >
-                {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                {copiedEmail ? <Check className="w-4 h-4 text-[#1E4738]" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
           </motion.div>
 
-          {/* GitHub Card */}
+          {/* GitHub */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/90 bg-slate-900/60 flex flex-col justify-between"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-200 mb-4">
-                <GithubIcon className="w-5 h-5" />
+              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+                <GithubIcon className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-mono text-slate-400 uppercase tracking-wider mb-1">GitHub Profile</h3>
-              <p className="text-sm font-semibold text-white truncate mb-4">karanx7230-coder</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">GitHub</h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">karanx7230-coder</p>
             </div>
 
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center py-2 px-3 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white font-mono text-xs font-semibold transition-all"
+              className="w-full text-center py-2 px-3 bg-[#0B0B0D] hover:bg-[#1C1D24] border border-[#C5A059]/30 text-[#E6E1D5] hover:text-[#C5A059] font-mono text-xs uppercase tracking-wider transition-colors"
             >
-              Visit Repositories
+              Repositories
             </a>
           </motion.div>
 
-          {/* LinkedIn Card */}
+          {/* LinkedIn */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/90 bg-slate-900/60 flex flex-col justify-between"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4">
-                <LinkedinIcon className="w-5 h-5" />
+              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+                <LinkedinIcon className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-mono text-slate-400 uppercase tracking-wider mb-1">LinkedIn</h3>
-              <p className="text-sm font-semibold text-white truncate mb-4">Karanpreet Singh</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">LinkedIn</h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">Karanpreet Singh</p>
             </div>
 
             <a
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center py-2 px-3 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white font-mono text-xs font-semibold transition-all"
+              className="w-full text-center py-2 px-3 bg-[#0B0B0D] hover:bg-[#1C1D24] border border-[#C5A059]/30 text-[#E6E1D5] hover:text-[#C5A059] font-mono text-xs uppercase tracking-wider transition-colors"
             >
-              Connect on LinkedIn
+              Connect
             </a>
           </motion.div>
 
-          {/* Phone Card */}
+          {/* Phone */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/90 bg-slate-900/60 flex flex-col justify-between"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4">
-                <Phone className="w-5 h-5" />
+              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+                <Phone className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-mono text-slate-400 uppercase tracking-wider mb-1">Phone / WhatsApp</h3>
-              <p className="text-sm font-semibold text-white truncate mb-4">{PERSONAL_INFO.phone}</p>
+              <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">Phone / WhatsApp</h3>
+              <p className="text-xs font-mono text-[#F5F2EB] truncate mb-4">{PERSONAL_INFO.phone}</p>
             </div>
 
             <div className="flex gap-2">
               <a
                 href={`tel:${PERSONAL_INFO.phone}`}
-                className="flex-1 text-center py-2 px-3 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white font-mono text-xs font-semibold transition-all"
+                className="flex-1 text-center py-2 px-3 bg-[#0B0B0D] hover:bg-[#1C1D24] border border-[#C5A059]/30 text-[#E6E1D5] hover:text-[#C5A059] font-mono text-xs uppercase tracking-wider transition-colors"
               >
                 Call
               </a>
               <button
                 onClick={handleCopyPhone}
-                className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 hover:text-white transition-all"
+                className="p-2 bg-[#0B0B0D] border border-[#C5A059]/30 text-[#9C968A] hover:text-[#C5A059] transition-colors"
                 title="Copy Phone Number"
               >
-                {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                {copiedPhone ? <Check className="w-4 h-4 text-[#1E4738]" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
           </motion.div>
         </div>
 
-        {/* Location Footer Note */}
-        <div className="flex items-center justify-center gap-2 text-xs font-mono text-slate-400">
-          <MapPin className="w-4 h-4 text-rose-500" />
-          <span>{PERSONAL_INFO.location} • Available for Remote & On-site roles</span>
+        {/* Location note */}
+        <div className="flex items-center justify-center gap-2 text-xs font-mono text-[#9C968A]">
+          <MapPin className="w-3.5 h-3.5 text-[#C5A059]" />
+          <span>{PERSONAL_INFO.location} • Remote & On-site Available</span>
         </div>
 
       </div>

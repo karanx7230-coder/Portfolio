@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Smartphone, Code2, Server, Layout, Wrench, Sparkles } from 'lucide-react';
+import { Smartphone, Code2, Server, Layout, Wrench } from 'lucide-react';
 import { TECH_STACK } from '../data/technologies';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
@@ -13,34 +13,30 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 
 export const TechStack: React.FC = () => {
   return (
-    <section id="skills" className="py-20 relative scroll-mt-16 bg-slate-950/40 border-y border-slate-800/40">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="skills" className="py-24 relative scroll-mt-16 bg-[#0B0B0D]/60 border-y border-[#C5A059]/15">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Title */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
+        <div className="flex flex-col items-start mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-purple-400 text-xs font-mono mb-3"
+            transition={{ duration: 0.6 }}
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
           >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>TECH STACK</span>
-          </motion.div>
+            02 • SKILLSET
+          </motion.span>
 
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
           >
-            Technologies & Mobile Skillset
+            Technologies & Frameworks
           </motion.h2>
-          <p className="text-slate-400 text-sm max-w-xl mt-3">
-            Grouped technologies and frameworks used to engineer cross-platform mobile apps.
-          </p>
         </div>
 
         {/* Tech Grid */}
@@ -50,50 +46,48 @@ export const TechStack: React.FC = () => {
             return (
               <motion.div
                 key={category.title}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="group glass-card glass-card-hover rounded-2xl p-6 border border-slate-800/80 bg-slate-900/50 flex flex-col justify-between"
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                className="group glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/15 bg-[#121317]/60 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-rose-400 group-hover:border-rose-500/50 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.2)] transition-all">
-                      <IconComponent className="w-5 h-5" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                      <IconComponent className="w-4 h-4" />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-white group-hover:text-rose-300 transition-colors">
+                      <h3 className="font-serif text-lg font-normal text-[#F5F2EB] group-hover:text-[#C5A059] transition-colors">
                         {category.title}
                       </h3>
-                      <span className="text-[11px] font-mono text-slate-500">{category.skills.length} Items</span>
+                      <span className="text-[10px] font-mono text-[#9C968A] uppercase tracking-wider">{category.skills.length} Technologies</span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+                  <p className="text-xs text-[#9C968A] mb-6 leading-relaxed font-light">
                     {category.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
-                      <motion.div
+                      <span
                         key={skill.name}
-                        whileHover={{ scale: 1.05 }}
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 ${
+                        className={`px-3 py-1 text-xs font-mono transition-colors duration-200 ${
                           skill.featured
-                            ? 'bg-slate-950 text-slate-100 border border-rose-500/30 hover:border-rose-500/60 shadow-[0_0_10px_rgba(244,63,94,0.1)]'
-                            : 'bg-slate-950/60 text-slate-300 border border-slate-800 hover:border-slate-700'
+                            ? 'bg-[#0B0B0D] text-[#F5F2EB] border border-[#C5A059]/40'
+                            : 'bg-[#0B0B0D]/60 text-[#D6D1C4] border border-[#C5A059]/15'
                         }`}
                       >
-                        {skill.featured && <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />}
-                        <span>{skill.name}</span>
-                      </motion.div>
+                        {skill.name}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                  <span>CATEGORY {idx + 1}</span>
-                  <span className="text-slate-400">VERIFIED SKILLS</span>
+                <div className="mt-8 pt-3 border-t border-[#C5A059]/15 flex items-center justify-between text-[10px] font-mono text-[#9C968A]">
+                  <span className="uppercase tracking-widest">CATEGORY 0{idx + 1}</span>
+                  <span className="text-[#C5A059]/80">VERIFIED</span>
                 </div>
               </motion.div>
             );
