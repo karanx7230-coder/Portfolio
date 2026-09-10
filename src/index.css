@@ -62,7 +62,7 @@
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(197, 160, 89, 0.18);
+  border: 0;
   border-radius: 1.25rem;
 }
 
@@ -72,7 +72,6 @@
 
 .glass-card-hover:hover {
   background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(197, 160, 89, 0.3);
   box-shadow: 0 20px 40px -15px rgba(30, 71, 56, 0.18), 0 0 20px -5px rgba(197, 160, 89, 0.12);
 }
 
@@ -82,7 +81,7 @@
   color: #1e4738;
   box-shadow: 0 8px 18px -12px rgba(30, 71, 56, 0.55);
 }
-
+.cinematic-section { transform-origin: 50% 0%; will-change: transform, opacity; }
 /* Gold Gradient Text */
 .text-gold-gradient {
   background: linear-gradient(135deg, #F5F2EB 0%, #D4AF37 50%, #C5A059 100%);
@@ -157,4 +156,10 @@ code, pre, .font-mono {
 
 [class*="border-[#C5A059]"] {
   border-color: rgba(197, 160, 89, 0.24) !important;
+}
+
+[class*="border"] { border-color: transparent !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-section { transform: none !important; opacity: 1 !important; }
 }
