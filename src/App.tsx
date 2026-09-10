@@ -9,6 +9,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { CinematicSection } from "./components/CinematicSection";
 import { ScrollProgress } from "./components/ScrollProgress";
+import { AtomMark } from "./components/AtomMark";
 import { Marquee } from "./components/Marquee";
 import { StatsBand } from "./components/StatsBand";
 
@@ -16,8 +17,15 @@ function App() {
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] flex flex-col font-sans overflow-x-clip selection:bg-[#1E4738]/20 selection:text-[#1E4738]">
       <ScrollProgress />
+      {/* Site-wide faint rotating mark — behind everything */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed -left-48 top-1/2 -translate-y-1/2 z-0 opacity-[0.08]"
+      >
+        <AtomMark size={820} stroke="#1E4738" spinSeconds={70} />
+      </div>
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow relative z-[1]">
         <Hero />
         <Marquee />
         <CinematicSection index={1}>

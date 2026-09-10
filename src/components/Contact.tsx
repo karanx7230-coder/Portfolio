@@ -29,7 +29,7 @@ export const Contact: React.FC = () => {
       icon: <Mail className="w-4 h-4" />,
       label: "Direct Email",
       value: PERSONAL_INFO.email,
-      link: `mailto:${PERSONAL_INFO.email}`,
+      link: `https://mail.google.com/mail/?view=cm&to=${PERSONAL_INFO.email}`,
       action: (
         <span className="flex items-center gap-2">
           <a
@@ -43,9 +43,9 @@ export const Contact: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.15em] text-[#9C968A] hover:text-[#C5A059] transition-colors"
-            title="Open in Gmail (web)"
+            title="Open in mail app"
           >
-            Gmail <ArrowUpRight className="w-3.5 h-3.5" />
+            App <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           <button
             onClick={handleCopyEmail}
