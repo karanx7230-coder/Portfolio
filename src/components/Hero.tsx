@@ -5,6 +5,7 @@ import { PERSONAL_INFO } from "../data/personalInfo";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import SplitText from "./ReactBits/SplitText";
 import BlurText from "./ReactBits/BlurText";
+import { CreativeVisualShowcase } from "./CreativeVisualShowcase";
 
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -101,6 +102,14 @@ export const Hero: React.FC = () => {
               </a>
             </motion.div>
           </div>
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 w-full max-w-md lg:justify-self-end"
+          >
+            <CreativeVisualShowcase />
+          </motion.div>
         </div>
       </motion.div>
     </section>

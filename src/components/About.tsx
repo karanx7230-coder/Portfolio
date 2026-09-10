@@ -13,6 +13,7 @@ import { PERSONAL_INFO } from "../data/personalInfo";
 import BlurText from "./ReactBits/BlurText";
 import ShinyText from "./ReactBits/ShinyText";
 import ScrollReveal from "./ReactBits/ScrollReveal";
+import { StyleFlexShowcase } from "./StyleFlexShowcase";
 
 const highlightCards = [
   {
@@ -40,7 +41,7 @@ const highlightCards = [
     icon: Layout,
     title: "Mobile UI",
     description:
-      "Pixel-perfect responsive layouts, custom design systems, Flexbox engine, and smooth animations.",
+      "Pixel-perfect responsive layouts, custom design systems, Flexbox composition, and smooth animations.",
     accent: "text-[#C5A059]",
   },
 ];
@@ -174,9 +175,13 @@ export const About: React.FC = () => {
                   <h3 className="font-serif text-xl font-normal text-[#F5F2EB] mb-2 group-hover:text-[#C5A059] transition-colors">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-[#9C968A] leading-relaxed font-light">
-                    {card.description}
-                  </p>
+                  {card.title === "Mobile UI" ? (
+                    <StyleFlexShowcase />
+                  ) : (
+                    <p className="text-xs text-[#9C968A] leading-relaxed font-light">
+                      {card.description}
+                    </p>
+                  )}
                 </div>
 
                 <div className="mt-8 pt-3 flex items-center justify-between text-[10px] font-mono text-[#9C968A]">

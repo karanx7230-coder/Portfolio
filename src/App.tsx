@@ -14,25 +14,25 @@ function App() {
     <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] flex flex-col font-sans selection:bg-[#1E4738]/20 selection:text-[#1E4738]">
       <Navbar />
       <main className="flex-grow">
-          <Hero />
-          <CinematicSection index={1}>
-            <About />
-          </CinematicSection>
-          <CinematicSection index={2}>
-            <TechStack />
-          </CinematicSection>
-          <CinematicSection index={3}>
-            <Projects />
-          </CinematicSection>
-          <CinematicSection index={4}>
-            <Experience />
-          </CinematicSection>
-          <CinematicSection index={5}>
-            <Education />
-          </CinematicSection>
-          <CinematicSection index={6}>
-            <Contact />
-          </CinematicSection>
+        <Hero />
+        <CinematicSection index={1}>
+          <About />
+        </CinematicSection>
+        <CinematicSection index={2}>
+          <TechStack />
+        </CinematicSection>
+        <CinematicSection index={3}>
+          <Projects />
+        </CinematicSection>
+        <CinematicSection index={4}>
+          <Experience />
+        </CinematicSection>
+        <CinematicSection index={5}>
+          <Education />
+        </CinematicSection>
+        <CinematicSection index={6}>
+          <Contact />
+        </CinematicSection>
       </main>
       <Footer />
     </div>
