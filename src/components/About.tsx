@@ -11,9 +11,7 @@ import {
   Star,
 } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
-import BlurText from "./ReactBits/BlurText";
 import ShinyText from "./ReactBits/ShinyText";
-import ScrollReveal from "./ReactBits/ScrollReveal";
 
 const highlightCards = [
   {
@@ -47,13 +45,8 @@ const highlightCards = [
 ];
 
 export const About: React.FC = () => {
-  // Line-by-line scroll animated reveal for summary text
-  const summarySentences = PERSONAL_INFO.summary.match(/[^.!?]+[.!?]+/g) || [
-    PERSONAL_INFO.summary,
-  ];
-
   return (
-    <section id="about" className="py-28 sm:py-32 relative scroll-mt-16">
+    <section id="about" className="pt-24 sm:pt-28 pb-14 sm:pb-16 relative scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Title */}
         <div className="flex flex-col items-start mb-16">
@@ -94,15 +87,17 @@ export const About: React.FC = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8">
-              {/* Animated Text Reveal */}
+              {/* Summary */}
               <div className="space-y-3 mb-6">
-                <BlurText
-                  text={summarySentences.join(" ")}
-                  animateBy="words"
-                  delay={48}
-                  stepDuration={0.48}
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7 }}
                   className="text-[#59605D] text-base sm:text-lg leading-relaxed font-light"
-                />
+                >
+                  {PERSONAL_INFO.summary}
+                </motion.p>
               </div>
 
               {/* Verified Metadata Tags */}
@@ -147,14 +142,7 @@ export const About: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Small Highlight Cards Grid */}
-        <ScrollReveal
-          containerClassName="hidden"
-          textClassName="text-[#1E4738]"
-          enableBlur={false}
-        >
-          About
-        </ScrollReveal>
+        {/* Highlights — editorial rows, no boxes */}
         <div className="mt-4 border-t border-[#1D1D1F]/10">
           {highlightCards.map((card, idx) => {
             const Icon = card.icon;
@@ -165,16 +153,17 @@ export const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.06 }}
-                className="group grid grid-cols-1 sm:grid-cols-12 gap-4 items-start border-b border-[#1D1D1F]/10 py-7"
+                className="group relative grid grid-cols-1 sm:grid-cols-12 gap-4 items-start border-b border-[#1D1D1F]/10 py-7 px-2 sm:px-4 -mx-2 sm:-mx-4 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/70 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-30px_rgba(30,71,56,0.35)]"
               >
+                <span className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full bg-gradient-to-b from-[#C5A059] to-[#1E4738] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
                 <div className="sm:col-span-5 flex items-center gap-4">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A059]" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A059] transition-transform duration-300 group-hover:scale-150" />
                   <span
-                    className={`w-10 h-10 rounded-full bg-[#E5EEE8] ${card.accent} flex items-center justify-center shrink-0`}
+                    className={`w-10 h-10 rounded-full bg-gradient-to-br from-[#E5EEE8] to-white ring-1 ring-[#C5A059]/25 ${card.accent} flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-[#1E4738] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6`}
                   >
                     <Icon className="w-4 h-4" />
                   </span>
-                  <h3 className="font-serif text-xl text-[#1D1D1F]">
+                  <h3 className="font-serif text-xl text-[#1D1D1F] decoration-[#C5A059]/60 decoration-2 underline-offset-4 group-hover:underline">
                     {card.title}
                   </h3>
                 </div>
@@ -186,15 +175,19 @@ export const About: React.FC = () => {
                     <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
                       {["Pixel-perfect", "Responsive", "60fps motion"].map(
                         (point, pIdx, arr) => (
-                          <span
+                          <motion.span
                             key={point}
-                            className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[#1E4738]"
+                            initial={{ opacity: 0, y: 8 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: 0.2 + pIdx * 0.08 }}
+                            className="group/point flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[#1E4738] hover:text-[#C5A059] transition-colors"
                           >
                             {point}
                             {pIdx < arr.length - 1 && (
-                              <span className="h-1 w-1 rounded-full bg-[#C5A059]" />
+                              <span className="h-1 w-1 rounded-full bg-[#C5A059] animate-pulse" />
                             )}
-                          </span>
+                          </motion.span>
                         ),
                       )}
                     </div>

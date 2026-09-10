@@ -17,8 +17,7 @@ export const Footer: React.FC = () => {
             {PERSONAL_INFO.monogram} • {PERSONAL_INFO.name}
           </div>
           <p className="text-xs text-[#9C968A] font-mono">
-            {PERSONAL_INFO.title} • React Native, TypeScript & Quiet Luxury
-            Aesthetic
+            {PERSONAL_INFO.title} • TypeScript • Expo • Mobile Apps
           </p>
         </div>
 

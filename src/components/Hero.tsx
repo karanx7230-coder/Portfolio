@@ -1,10 +1,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Smartphone, ChevronDown } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
-import SplitText from "./ReactBits/SplitText";
-import BlurText from "./ReactBits/BlurText";
 import { ReactAtom } from "./ReactAtom";
 
 export const Hero: React.FC = () => {
@@ -33,7 +31,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="flex items-center gap-3 mb-4"
+              className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4"
             >
               <Smartphone className="w-5 h-5 text-[#C5A059]" />
               <span className="font-serif text-2xl sm:text-3xl text-[#1D1D1F]">
@@ -44,22 +42,36 @@ export const Hero: React.FC = () => {
                 {PERSONAL_INFO.title}
               </span>
             </motion.div>
-            <SplitText
-              text="Building Modern Mobile Experiences"
-              tag="h1"
-              splitType="words"
-              delay={125}
-              duration={1.55}
-              from={{ opacity: 0, y: 64, rotateX: -18 }}
-              className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-[#1D1D1F] leading-[1.08] tracking-tight mb-8 max-w-4xl"
-            />
-            <BlurText
-              text="Passionate cross-platform app developer focused on crafting clean, high-performance mobile interfaces using React Native, TypeScript, and Expo. Experienced with Supabase, Firebase, REST APIs, and structured navigation architectures."
-              animateBy="words"
-              delay={42}
-              stepDuration={0.48}
+            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-[#1D1D1F] leading-[1.08] tracking-tight mb-8 max-w-4xl">
+              <span className="block overflow-hidden">
+                <motion.span
+                  initial={{ y: "110%" }}
+                  animate={{ y: "0%" }}
+                  transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  Building Clean,
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden">
+                <motion.span
+                  initial={{ y: "110%" }}
+                  animate={{ y: "0%" }}
+                  transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  Scalable Mobile Apps
+                </motion.span>
+              </span>
+            </h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
               className="text-[#59605D] text-base sm:text-lg leading-relaxed max-w-xl font-light mb-10"
-            />
+            >
+              React Native developer focused on building clean, responsive cross-platform apps with TypeScript, Expo, Supabase, Firebase, and REST APIs.
+            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,7 +80,7 @@ export const Hero: React.FC = () => {
             >
               <a
                 href="#projects"
-                className="group relative inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#1E4738] hover:bg-[#2D5D4A] text-white font-mono text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-md"
+                className="group relative inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#0B0B0D] hover:bg-[#1E4738] text-white font-mono text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-md"
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -77,7 +89,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 hover:bg-[#E5EEE8] text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 hover:border-[#1D1D1F]/40 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
               >
                 <GithubIcon className="w-3.5 h-3.5 text-[#1E4738]" />
                 <span>GitHub</span>
@@ -86,7 +98,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 hover:bg-[#E5EEE8] text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#1D1D1F]/15 hover:border-[#1D1D1F]/40 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
               >
                 <LinkedinIcon className="w-3.5 h-3.5 text-[#1E4738]" />
                 <span>LinkedIn</span>
@@ -105,31 +117,9 @@ export const Hero: React.FC = () => {
               </span>
             </div>
             <ReactAtom />
-            <div className="glass-card px-5 py-4 text-center max-w-xs">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#1E4738]">
-                Scroll — the best part is buried below
-              </p>
-              <p className="mt-1 text-xs text-[#59605D] font-light">
-                2 resume builds • 3 client apps • keep going
-              </p>
-            </div>
           </motion.div>
         </div>
       </motion.div>
-      <motion.a
-        href="#about"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[#59605D] hover:text-[#1E4738] transition-colors"
-      >
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
-          Scroll to decode my story
-        </span>
-        <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#C5A059]/30 bg-white/80">
-          <ChevronDown className="h-4 w-4 animate-bounce" />
-        </span>
-      </motion.a>
     </section>
   );
 };

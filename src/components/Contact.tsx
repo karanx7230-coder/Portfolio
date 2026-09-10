@@ -27,6 +27,7 @@ export const Contact: React.FC = () => {
       icon: <Mail className="w-4 h-4" />,
       label: "Direct Email",
       value: PERSONAL_INFO.email,
+      link: `mailto:${PERSONAL_INFO.email}`,
       action: (
         <span className="flex items-center gap-2">
           <a
@@ -34,6 +35,15 @@ export const Contact: React.FC = () => {
             className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.15em] text-[#1E4738] hover:text-[#C5A059] transition-colors"
           >
             Send <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href={`https://mail.google.com/mail/?view=cm&to=${PERSONAL_INFO.email}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.15em] text-[#9C968A] hover:text-[#C5A059] transition-colors"
+            title="Open in Gmail (web)"
+          >
+            Gmail <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           <button
             onClick={handleCopyEmail}
@@ -113,7 +123,7 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-28 relative scroll-mt-16"
+      className="pt-20 sm:pt-24 pb-24 sm:pb-32 relative scroll-mt-16"
     >
       {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-radial-glow-bottom pointer-events-none" />
@@ -148,8 +158,9 @@ export const Contact: React.FC = () => {
           </motion.h2>
 
           <p className="text-[#59605D] text-base sm:text-lg max-w-xl mt-4 font-light">
-            Have a React Native project, full-time position, or mobile developer
-            opportunity in mind?
+            Looking for a React Native developer? Open to internships, junior
+            roles, freelance projects, and practical mobile development
+            opportunities.
           </p>
         </div>
 
@@ -171,9 +182,18 @@ export const Contact: React.FC = () => {
                 <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#9C968A]">
                   {row.label}
                 </div>
-                <div className="truncate font-mono text-sm text-[#1D1D1F]">
-                  {row.value}
-                </div>
+                {"link" in row && row.link ? (
+                  <a
+                    href={(row as { link: string }).link}
+                    className="truncate block font-mono text-sm text-[#1D1D1F] hover:text-[#1E4738] hover:underline underline-offset-4 transition-colors"
+                  >
+                    {row.value}
+                  </a>
+                ) : (
+                  <div className="truncate font-mono text-sm text-[#1D1D1F]">
+                    {row.value}
+                  </div>
+                )}
               </div>
               {row.action}
             </motion.div>

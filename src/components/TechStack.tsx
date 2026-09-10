@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { TECH_STACK } from "../data/technologies";
 import ShinyText from "./ReactBits/ShinyText";
-import ScrollReveal from "./ReactBits/ScrollReveal";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Smartphone,
@@ -33,7 +32,7 @@ export const TechStack: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-28 sm:py-32 relative scroll-mt-16 overflow-hidden"
+      className="pt-24 sm:pt-28 pb-14 sm:pb-16 relative scroll-mt-16 overflow-hidden"
     >
       {/* Ambient styling — no boxes, just atmosphere */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[380px] bg-radial-glow pointer-events-none" />
@@ -100,14 +99,6 @@ export const TechStack: React.FC = () => {
             </span>
           </motion.div>
         </div>
-
-        <ScrollReveal
-          containerClassName="mb-10"
-          textClassName="text-[#1E4738]"
-          enableBlur={false}
-        >
-          A considered toolkit for dependable mobile products.
-        </ScrollReveal>
 
         {/* Styled editorial list — still no boxes */}
         <div className="border-t border-[#1D1D1F]/10">
@@ -183,7 +174,7 @@ export const TechStack: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C968A]">
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C968A]">
           <span className="inline-flex items-center gap-2">
             <Star className="h-3.5 w-3.5 fill-[#C5A059] text-[#C5A059]" />
             Daily driver
@@ -191,9 +182,6 @@ export const TechStack: React.FC = () => {
           <span className="inline-flex items-center gap-2">
             <span className="h-[2px] w-6 bg-gradient-to-r from-[#C5A059] to-[#1E4738]" />
             Core level
-          </span>
-          <span className="ml-auto hidden sm:inline">
-            Hover a row • Scroll for shipped proof ↓
           </span>
         </div>
       </div>

@@ -17,20 +17,21 @@ export const TECH_STACK: TechCategory[] = [
     iconName: "Smartphone",
     skills: [
       { name: "React Native", level: "Core", featured: true },
-      { name: "React Native CLI", level: "Intermediate" },
+      { name: "React Native CLI", level: "core", featured: true },
       { name: "Expo", level: "Core", featured: true },
+      { name: "CLI", level: "Core", featured: true },
       { name: "Expo Router", level: "Advanced" },
-      { name: "React Navigation", level: "Core", featured: true },
+      { name: "React Navigation", level: "Core" },
     ],
   },
   {
     title: "Languages",
     description:
-      "Strong foundation in strongly-typed JavaScript and TypeScript",
+      "JavaScript and TypeScript for building structured, maintainable mobile applications",
     iconName: "Code2",
     skills: [
-      { name: "JavaScript ES6+", level: "Expert", featured: true },
-      { name: "TypeScript", level: "Advanced", featured: true },
+      { name: "JavaScript ES6+", level: "Practical", featured: true },
+      { name: "TypeScript", level: "Intermediate", featured: true },
       { name: "JSX / TSX", level: "Advanced", featured: true },
     ],
   },
@@ -42,7 +43,7 @@ export const TECH_STACK: TechCategory[] = [
     skills: [
       { name: "Supabase", level: "Practical", featured: true },
       { name: "Firebase", level: "Practical", featured: true },
-      { name: "REST APIs", level: "Advanced", featured: true },
+      { name: "REST APIs", level: "Practical", featured: true },
     ],
   },
   {

@@ -8,7 +8,7 @@ export const Education: React.FC = () => {
   const edu = PERSONAL_INFO.education;
 
   return (
-    <section id="education" className="py-28 sm:py-32 relative scroll-mt-16">
+    <section id="education" className="py-12 sm:py-14 relative scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16">

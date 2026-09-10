@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin, Award, CheckCircle2, Star } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import ShinyText from "./ReactBits/ShinyText";
-import ScrollReveal from "./ReactBits/ScrollReveal";
 
 export const Experience: React.FC = () => {
   const training = PERSONAL_INFO.training;
@@ -11,7 +10,7 @@ export const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="py-28 sm:py-32 relative scroll-mt-16 bg-[#F0F3F0]/70"
+      className="pt-20 sm:pt-24 pb-14 sm:pb-16 relative scroll-mt-16 bg-[#F0F3F0]/70"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
@@ -43,13 +42,6 @@ export const Experience: React.FC = () => {
           </motion.h2>
         </div>
 
-        <ScrollReveal
-          containerClassName="mb-8"
-          textClassName="text-[#1E4738]"
-          enableBlur={false}
-        >
-          Six months of hands-on product development and delivery.
-        </ScrollReveal>
         <div className="max-w-4xl mx-auto">
           {/* Main Timeline Card */}
           <motion.div
@@ -62,7 +54,7 @@ export const Experience: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-8">
               <div>
                 <span className="inline-block px-3 py-1 rounded-full bg-[#E5EEE8] text-[#C5A059] text-[11px] font-mono uppercase tracking-wider mb-3">
-                  PRESENT ROLE
+                  TRAINING
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#1D1D1F] mb-1">
                   {training.role}
@@ -87,7 +79,7 @@ export const Experience: React.FC = () => {
             {/* Key Responsibilities */}
             <div className="space-y-4 mb-8">
               <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A059] mb-4">
-                Core Responsibilities & Technical Objectives
+                What I Worked On
               </h4>
               <ul className="divide-y divide-[#1D1D1F]/10 border-y border-[#1D1D1F]/10">
                 {training.responsibilities.map((resp, i) => (

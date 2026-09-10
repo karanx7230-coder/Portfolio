@@ -18,26 +18,34 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-
-      const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
+      setScrolled(window.scrollY > 20);
     };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Scroll-spy: highlight the nav tab of the section currently in view.
+    // IntersectionObserver (not offsetTop math) so transformed section
+    // wrappers can't throw off the calculation.
+    const ids = navItems.map((item) => item.href.substring(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-35% 0px -60% 0px", threshold: 0 },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -52,17 +60,6 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-        {/* Minimal Wordmark Monogram Logo: KS */}
-        <a
-          href="#"
-          className="group flex items-center gap-3 focus:outline-none"
-        >
-          <span className="h-3 w-[1px] bg-[#C5A059]/30 hidden sm:inline-block" />
-          <span className="text-xs uppercase tracking-[0.25em] text-[#59605D] group-hover:text-[#1E4738] transition-colors duration-300 hidden sm:inline-block">
-            {PERSONAL_INFO.name}
-          </span>
-        </a>
-
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
@@ -161,24 +158,24 @@ export const Navbar: React.FC = () => {
                   <span>{PERSONAL_INFO.availability}</span>
                 </a>
                 <div className="flex items-center justify-between">
-                <a
-                  href={PERSONAL_INFO.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs uppercase tracking-wider font-mono text-[#9C968A] hover:text-[#C5A059] flex items-center gap-1"
-                >
-                  GitHub <ArrowUpRight className="w-3 h-3 text-[#C5A059]" />
-                </a>
-                <a
-                  href={PERSONAL_INFO.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs uppercase tracking-wider font-mono text-[#9C968A] hover:text-[#C5A059] flex items-center gap-1"
-                >
-                  LinkedIn <ArrowUpRight className="w-3 h-3 text-[#C5A059]" />
-                </a>
+                  <a
+                    href={PERSONAL_INFO.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs uppercase tracking-wider font-mono text-[#9C968A] hover:text-[#C5A059] flex items-center gap-1"
+                  >
+                    GitHub <ArrowUpRight className="w-3 h-3 text-[#C5A059]" />
+                  </a>
+                  <a
+                    href={PERSONAL_INFO.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs uppercase tracking-wider font-mono text-[#9C968A] hover:text-[#C5A059] flex items-center gap-1"
+                  >
+                    LinkedIn <ArrowUpRight className="w-3 h-3 text-[#C5A059]" />
+                  </a>
+                </div>
               </div>
-            </div>
             </div>
           </motion.div>
         )}

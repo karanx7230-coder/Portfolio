@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     title: "LAZA",
     category: "React Native E-Commerce App",
     description:
-      "An e-commerce mobile application built with React Native and TypeScript, featuring authentication, product discovery, cart and wishlist functionality, checkout, address selection and structured navigation.",
+      "E-commerce mobile app built with React Native and TypeScript, featuring Firebase authentication, product discovery, cart and wishlist flows, checkout, address selection, and structured navigation.",
     image: lazaCover,
     technologies: [
       "React Native",
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
     title: "Instagram Clone",
     category: "Social Media App",
     description:
-      "A social media mobile application built with React Native, Expo, TypeScript and Supabase, featuring feeds, stories, reels, profiles, search and direct messaging workflows.",
+      "Social media app built with React Native, Expo, TypeScript, and Supabase, featuring feeds, stories, profiles, search, likes, and real-time chat workflows.",
     image: instagramCover,
     technologies: ["React Native", "Expo", "TypeScript", "Supabase"],
     features: [

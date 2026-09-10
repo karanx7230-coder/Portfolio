@@ -41,30 +41,7 @@
   .cursor-follower { display: none; }
 }
 
-/* Motion utilities for scroll-story UI */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-float {
-  animation: float 4.5s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee, .animate-float { animation: none; }
-}
-
-/* Old Money Background Grid & Vignette */
+/* Background Grid & Vignette */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
@@ -150,21 +127,9 @@ code, pre, .font-mono {
   font-family: var(--font-mono);
 }
 
-/* Respect Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Keep legacy section utilities aligned with the light portfolio palette. */
-[class*="bg-[#0B0B0D]"], [class*="bg-[#121317]"], [class*="bg-[#07070a]"] {
-  background-color: rgba(255, 255, 255, 0.72) !important;
-}
-
+/* Legacy section utilities aligned with the light palette.
+   (Old sections use dark-theme classes; these map them to light.
+   Scoped to text + radius only — backgrounds and borders stay as authored.) */
 [class*="text-[#F5F2EB]"], [class*="text-[#E6E1D5]"], [class*="text-[#D6D1C4]"], [class*="text-slate-200"] {
   color: #1d1d1f !important;
 }
@@ -177,12 +142,12 @@ code, pre, .font-mono {
   border-radius: 1rem !important;
 }
 
-[class*="border-[#C5A059]"] {
-  border-color: rgba(197, 160, 89, 0.24) !important;
-}
-
-[class*="border"] { border-color: transparent !important; }
-
+/* Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  .cinematic-section { transform: none !important; opacity: 1 !important; }
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
