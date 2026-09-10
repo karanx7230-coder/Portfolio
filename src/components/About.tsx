@@ -8,100 +8,107 @@ const highlightCards = [
     icon: Smartphone,
     title: 'React Native',
     description: 'Cross-platform iOS & Android mobile application development with CLI and Expo workflows.',
-    color: 'from-rose-500/20 to-rose-600/5',
-    borderColor: 'group-hover:border-rose-500/40',
-    iconColor: 'text-rose-400'
+    accent: 'border-[#C5A059]/30 text-[#C5A059]'
   },
   {
     icon: Code,
     title: 'TypeScript',
     description: 'Strongly-typed architecture, interfaces, strict type-checking, and maintainable mobile codebase.',
-    color: 'from-blue-500/20 to-blue-600/5',
-    borderColor: 'group-hover:border-blue-500/40',
-    iconColor: 'text-blue-400'
+    accent: 'border-[#7A2234]/40 text-[#D4AF37]'
   },
   {
     icon: Layers,
     title: 'Cross-Platform Apps',
     description: 'Seamless navigation, state management, REST API integration, and cloud backends.',
-    color: 'from-purple-500/20 to-purple-600/5',
-    borderColor: 'group-hover:border-purple-500/40',
-    iconColor: 'text-purple-400'
+    accent: 'border-[#1E4738]/40 text-[#2D5D4A]'
   },
   {
     icon: Layout,
     title: 'Mobile UI',
     description: 'Pixel-perfect responsive layouts, custom design systems, Flexbox engine, and smooth animations.',
-    color: 'from-emerald-500/20 to-emerald-600/5',
-    borderColor: 'group-hover:border-emerald-500/40',
-    iconColor: 'text-emerald-400'
+    accent: 'border-[#C5A059]/30 text-[#F5F2EB]'
   }
 ];
 
 export const About: React.FC = () => {
+  // Line-by-line scroll animated reveal for summary text
+  const summarySentences = PERSONAL_INFO.summary.match(/[^.!?]+[.!?]+/g) || [PERSONAL_INFO.summary];
+
   return (
-    <section id="about" className="py-20 relative scroll-mt-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="about" className="py-24 relative scroll-mt-16">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
+        {/* Section Title */}
+        <div className="flex flex-col items-start mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-rose-400 text-xs font-mono mb-3"
+            transition={{ duration: 0.6 }}
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
-            <span>ABOUT ME</span>
-          </motion.div>
+            01 • ABOUT
+          </motion.span>
 
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
           >
             React Native Developer based in Mohali
           </motion.h2>
         </div>
 
-        {/* Top Brief Summary Row */}
+        {/* Top Brief Summary Box with Line-by-Line Scroll Reveal */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass-card rounded-2xl p-6 sm:p-8 mb-12 border border-slate-800/80 bg-slate-900/60 relative overflow-hidden"
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8 }}
+          className="glass-card rounded-none p-8 sm:p-10 mb-12 border border-[#C5A059]/20 bg-[#121317]/80 relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              
+              {/* Animated Text Reveal */}
+              <div className="space-y-3 mb-6">
+                {summarySentences.map((sentence, idx) => (
+                  <motion.p
+                    key={idx}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: idx * 0.2 }}
+                    className="text-[#E6E1D5] text-base sm:text-lg leading-relaxed font-light"
+                  >
+                    {sentence.trim()}
+                  </motion.p>
+                ))}
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="md:col-span-8">
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-4">
-                {PERSONAL_INFO.summary}
-              </p>
-              <div className="flex flex-wrap gap-4 text-xs font-mono text-slate-400">
-                <span className="flex items-center gap-1.5 bg-slate-950/60 px-3 py-1.5 rounded-lg border border-slate-800">
-                  <MapPin className="w-3.5 h-3.5 text-rose-400" /> {PERSONAL_INFO.location}
+              {/* Verified Metadata Tags */}
+              <div className="flex flex-wrap gap-4 text-xs font-mono text-[#9C968A] pt-4 border-t border-[#C5A059]/15">
+                <span className="flex items-center gap-2 bg-[#0B0B0D] px-3.5 py-1.5 border border-[#C5A059]/20 text-[#D6D1C4]">
+                  <MapPin className="w-3.5 h-3.5 text-[#C5A059]" /> {PERSONAL_INFO.location}
                 </span>
-                <span className="flex items-center gap-1.5 bg-slate-950/60 px-3 py-1.5 rounded-lg border border-slate-800">
-                  <Calendar className="w-3.5 h-3.5 text-purple-400" /> 6 Months Practical Training
+                <span className="flex items-center gap-2 bg-[#0B0B0D] px-3.5 py-1.5 border border-[#C5A059]/20 text-[#D6D1C4]">
+                  <Calendar className="w-3.5 h-3.5 text-[#C5A059]" /> 6 Months Practical Training
                 </span>
-                <span className="flex items-center gap-1.5 bg-slate-950/60 px-3 py-1.5 rounded-lg border border-slate-800">
-                  <Award className="w-3.5 h-3.5 text-amber-400" /> Trainee @ Apptechies
+                <span className="flex items-center gap-2 bg-[#0B0B0D] px-3.5 py-1.5 border border-[#C5A059]/20 text-[#D6D1C4]">
+                  <Award className="w-3.5 h-3.5 text-[#C5A059]" /> Trainee @ Apptechies
                 </span>
               </div>
             </div>
 
-            <div className="md:col-span-4 flex flex-col gap-3 justify-center border-t md:border-t-0 md:border-l border-slate-800/80 pt-6 md:pt-0 md:pl-8">
-              <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Core Tech Focus</div>
-              <div className="flex flex-wrap gap-1.5">
+            <div className="lg:col-span-4 flex flex-col gap-4 border-t lg:border-t-0 lg:border-l border-[#C5A059]/15 pt-6 lg:pt-0 lg:pl-8">
+              <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A059]">Core Technical Focus</span>
+              <div className="flex flex-wrap gap-2">
                 {['React Native', 'TypeScript', 'Expo', 'Supabase', 'Firebase', 'REST APIs'].map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-200 border border-slate-700/60"
+                    className="px-3 py-1 text-xs font-mono bg-[#0B0B0D] text-[#D6D1C4] border border-[#C5A059]/20"
                   >
                     {tag}
                   </span>
@@ -111,8 +118,8 @@ export const About: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Small Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Small Highlight Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlightCards.map((card, idx) => {
             const Icon = card.icon;
             return (
@@ -121,26 +128,23 @@ export const About: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`group glass-card glass-card-hover rounded-xl p-6 relative overflow-hidden flex flex-col justify-between border border-slate-800/80 ${card.borderColor}`}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="group glass-card glass-card-hover rounded-none p-6 flex flex-col justify-between border border-[#C5A059]/15"
               >
-                {/* Background Gradient Fill on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
-
                 <div>
-                  <div className={`w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center mb-4 ${card.iconColor} group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-6 h-6" />
+                  <div className={`w-10 h-10 rounded-none bg-[#0B0B0D] border ${card.accent} flex items-center justify-center mb-5`}>
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-rose-300 transition-colors">
+                  <h3 className="font-serif text-xl font-normal text-[#F5F2EB] mb-2 group-hover:text-[#C5A059] transition-colors">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-[#9C968A] leading-relaxed font-light">
                     {card.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-500 group-hover:text-slate-300">
-                  <span>RESUME SUPPORTED</span>
+                <div className="mt-8 pt-3 border-t border-[#C5A059]/15 flex items-center justify-between text-[10px] font-mono text-[#9C968A]">
+                  <span className="uppercase tracking-wider">RESUME SUPPORTED</span>
                   <span>✓</span>
                 </div>
               </motion.div>
