@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Smartphone } from "lucide-react";
+import { ArrowRight, Smartphone, ChevronDown } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import SplitText from "./ReactBits/SplitText";
 import BlurText from "./ReactBits/BlurText";
-import { CreativeVisualShowcase } from "./CreativeVisualShowcase";
+import { ReactAtom } from "./ReactAtom";
 
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
