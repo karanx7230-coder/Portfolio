@@ -1,5 +1,5 @@
-import lazaCover from '../assets/projects/laza-cover.jpg';
-import instagramCover from '../assets/projects/instagram-cover.jpg';
+import lazaCover from '../assets/projects/laza-cover.png';
+import instagramCover from '../assets/projects/instagram-cover.png';
 
 export interface Project {
   id: string;

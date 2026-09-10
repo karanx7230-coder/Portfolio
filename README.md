@@ -2,7 +2,7 @@
 
 A personal, high-performance, single-page developer portfolio website built for **Karanpreet Singh** (React Native Developer — Fresher).
 
-![Portfolio Preview](./src/assets/projects/laza-cover.jpg)
+![Portfolio Preview](./src/assets/projects/laza-cover.png)
 
 ## Stack & Technologies
 
