@@ -23,6 +23,24 @@
   font-family: var(--font-serif);
 }
 
+.cursor-follower {
+  position: fixed;
+  left: -5px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0b0b0d;
+  box-shadow: 0 0 0 4px rgba(11, 11, 13, 0.08), 0 0 18px rgba(11, 11, 13, 0.28);
+  pointer-events: none;
+  z-index: 100;
+  transition: box-shadow 180ms ease;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-follower { display: none; }
+}
+
 /* Old Money Background Grid & Vignette */
 .bg-grid-pattern {
   background-size: 40px 40px;
@@ -56,6 +74,13 @@
   background: rgba(255, 255, 255, 0.92);
   border-color: rgba(197, 160, 89, 0.3);
   box-shadow: 0 20px 40px -15px rgba(30, 71, 56, 0.18), 0 0 20px -5px rgba(197, 160, 89, 0.12);
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px);
+  background: #e5eee8;
+  color: #1e4738;
+  box-shadow: 0 8px 18px -12px rgba(30, 71, 56, 0.55);
 }
 
 /* Gold Gradient Text */

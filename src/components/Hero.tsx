@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/70 border border-[#C5A059]/30 text-[#1E4738] text-xs font-mono mb-8"
+              className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/70 text-[#1E4738] text-xs font-mono mb-8"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#1E4738]" />
               <span className="uppercase tracking-[0.2em] text-[11px] font-medium">
@@ -56,13 +56,16 @@ export const Hero: React.FC = () => {
               text="Building Modern Mobile Experiences"
               tag="h1"
               splitType="words"
-              delay={90}
+              delay={125}
+              duration={1.55}
+              from={{ opacity: 0, y: 64, rotateX: -18 }}
               className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-[#1D1D1F] leading-[1.08] tracking-tight mb-8 max-w-4xl"
             />
             <BlurText
               text="Passionate cross-platform app developer focused on crafting clean, high-performance mobile interfaces using React Native, TypeScript, and Expo. Experienced with Supabase, Firebase, REST APIs, and structured navigation architectures."
               animateBy="words"
-              delay={28}
+              delay={42}
+              stepDuration={0.48}
               className="text-[#59605D] text-base sm:text-lg leading-relaxed max-w-xl font-light mb-10"
             />
             <motion.div
@@ -82,7 +85,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 border border-[#C5A059]/35 hover:border-[#1E4738]/50 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 hover:bg-[#E5EEE8] text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
               >
                 <GithubIcon className="w-3.5 h-3.5 text-[#1E4738]" />
                 <span>GitHub</span>
@@ -91,7 +94,7 @@ export const Hero: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 border border-[#C5A059]/35 hover:border-[#1E4738]/50 text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 hover:bg-[#E5EEE8] text-[#1D1D1F] font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300"
               >
                 <LinkedinIcon className="w-3.5 h-3.5 text-[#1E4738]" />
                 <span>LinkedIn</span>
@@ -99,12 +102,13 @@ export const Hero: React.FC = () => {
             </motion.div>
           </div>
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="h-72 w-72 sm:h-80 sm:w-80 rounded-full border border-[#C5A059]/30 bg-white/60 shadow-[0_30px_80px_-35px_rgba(30,71,56,0.45)] flex items-center justify-center">
-              <div className="h-52 w-52 sm:h-60 sm:w-60 rounded-full border border-[#1E4738]/20 bg-[#E9EFEA]/80 flex items-center justify-center text-center p-8">
-                <p className="font-serif text-2xl text-[#1E4738] italic">
-                  Thoughtful apps, built to last.
-                </p>
-              </div>
+            <div className="flex flex-col items-center lg:items-end gap-3 text-right">
+              <span className="font-mono text-xs tracking-[0.24em] text-[#C5A059]">
+                RN01 / 06
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#59605D]">
+                MOBILE / CRAFTMOHALI · INDIA
+              </span>
             </div>
           </div>
         </div>

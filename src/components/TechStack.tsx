@@ -1,6 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Smartphone, Code2, Server, Layout, Wrench } from "lucide-react";
+import {
+  Smartphone,
+  Code2,
+  Server,
+  Layout,
+  Wrench,
+  Layers,
+} from "lucide-react";
 import { TECH_STACK } from "../data/technologies";
 import ShinyText from "./ReactBits/ShinyText";
 import ScrollReveal from "./ReactBits/ScrollReveal";
@@ -11,13 +18,18 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Server,
   Layout,
   Wrench,
+  Layers,
 };
 
 export const TechStack: React.FC = () => {
+  const [activeCategory, setActiveCategory] = React.useState<string | null>(
+    null,
+  );
+
   return (
     <section
       id="skills"
-      className="py-24 relative scroll-mt-16 bg-[#0B0B0D]/60 border-y border-[#C5A059]/15"
+      className="py-24 relative scroll-mt-16 bg-[#F0F3F0]/70"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Title */}
@@ -43,7 +55,7 @@ export const TechStack: React.FC = () => {
               text="Technologies & Frameworks"
               color="#1E4738"
               shineColor="#C5A059"
-              speed={5}
+              speed={3.5}
             />
           </motion.h2>
         </div>
@@ -66,11 +78,17 @@ export const TechStack: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
-                className="group glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/15 bg-[#121317]/60 flex flex-col justify-between"
+                onMouseEnter={() => setActiveCategory(category.title)}
+                onMouseLeave={() => setActiveCategory(null)}
+                className={`group glass-card glass-card-hover rounded-none p-6 bg-white/70 flex flex-col justify-between transition-all duration-500 ${
+                  activeCategory && activeCategory !== category.title
+                    ? "opacity-45 scale-[0.985]"
+                    : "opacity-100"
+                }`}
               >
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                    <div className="w-9 h-9 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#C5A059]">
                       <IconComponent className="w-4 h-4" />
                     </div>
                     <div>
@@ -91,10 +109,10 @@ export const TechStack: React.FC = () => {
                     {category.skills.map((skill) => (
                       <span
                         key={skill.name}
-                        className={`px-3 py-1 text-xs font-mono transition-colors duration-200 ${
+                        className={`skill-tag px-3 py-1 text-xs font-mono transition-all duration-200 ${
                           skill.featured
-                            ? "bg-[#0B0B0D] text-[#F5F2EB] border border-[#C5A059]/40"
-                            : "bg-[#0B0B0D]/60 text-[#D6D1C4] border border-[#C5A059]/15"
+                            ? "bg-[#E5EEE8] text-[#1D1D1F]"
+                            : "bg-[#F1F3F0] text-[#59605D]"
                         }`}
                       >
                         {skill.name}
@@ -103,7 +121,7 @@ export const TechStack: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-3 border-t border-[#C5A059]/15 flex items-center justify-between text-[10px] font-mono text-[#9C968A]">
+                <div className="mt-8 pt-3 flex items-center justify-between text-[10px] font-mono text-[#9C968A]">
                   <span className="uppercase tracking-widest">
                     CATEGORY 0{idx + 1}
                   </span>
