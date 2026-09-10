@@ -19,7 +19,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8 }}
-      className="group glass-card rounded-none overflow-hidden border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col hover:border-[#C5A059]/50 transition-all duration-500"
+      className="group glass-card rounded-none overflow-hidden bg-white/80 flex flex-col transition-all duration-500"
     >
       {/* Image Showcase Container */}
       <div
@@ -36,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-transparent to-transparent opacity-70" />
 
         {/* Category Pill */}
-        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 bg-[#0B0B0D]/90 backdrop-blur-md border border-[#C5A059]/30 text-xs font-mono text-[#C5A059]">
+        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-mono text-[#1E4738]">
           <Layers className="w-3.5 h-3.5" />
           <span>{project.category}</span>
         </div>
@@ -74,7 +74,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-xs font-mono bg-[#0B0B0D] text-[#E6E1D5] border border-[#C5A059]/15"
+                className="px-3 py-1 rounded-full text-xs font-mono bg-[#F1F3F0] text-[#59605D]"
               >
                 {tech}
               </span>
@@ -83,7 +83,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
+        <div className="pt-4 flex items-center justify-between">
           <button
             onClick={() => onOpenModal(project)}
             className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-medium text-[#C5A059] hover:text-[#D4AF37] transition-colors"
@@ -97,7 +97,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="p-2 bg-[#0B0B0D] border border-[#C5A059]/20 text-[#9C968A] hover:text-[#C5A059] hover:border-[#C5A059]/50 transition-all"
+            className="p-2 rounded-full bg-[#F1F3F0] text-[#9C968A] hover:text-[#C5A059] transition-all"
             title="View Code on GitHub"
           >
             <GithubIcon className="w-4 h-4" />

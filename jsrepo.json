@@ -1,0 +1,12 @@
+{
+  "$schema": "https://jsrepo.dev/schema.json",
+  "repos": [
+    "https://reactbits.dev/r"
+  ],
+  "defaultPaths": {
+    "component": "src/components/ReactBits"
+  },
+  "paths": {
+    "component": "src/components/ReactBits"
+  }
+}

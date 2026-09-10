@@ -36,7 +36,7 @@ export const Projects: React.FC = () => {
               text="Featured Mobile Projects"
               color="#1E4738"
               shineColor="#C5A059"
-              speed={5}
+              speed={3.5}
             />
           </motion.h2>
         </div>

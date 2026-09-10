@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/personalInfo';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { PERSONAL_INFO } from "../data/personalInfo";
 
 const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Contact', href: '#contact' },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,8 +36,8 @@ export const Navbar: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -47,8 +47,8 @@ export const Navbar: React.FC = () => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#0B0B0D]/90 backdrop-blur-md border-b border-[#C5A059]/15 py-4 shadow-2xl'
-          : 'bg-transparent py-6'
+          ? "bg-white/90 backdrop-blur-md py-4 shadow-2xl"
+          : "bg-transparent py-6"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
@@ -57,9 +57,6 @@ export const Navbar: React.FC = () => {
           href="#"
           className="group flex items-center gap-3 focus:outline-none"
         >
-          <span className="font-serif text-2xl font-bold tracking-widest text-[#C5A059] group-hover:text-[#D4AF37] transition-colors duration-300">
-            {PERSONAL_INFO.monogram}
-          </span>
           <span className="h-3 w-[1px] bg-[#C5A059]/30 hidden sm:inline-block" />
           <span className="text-xs uppercase tracking-[0.25em] text-[#9C968A] group-hover:text-[#E6E1D5] transition-colors duration-300 hidden sm:inline-block">
             {PERSONAL_INFO.name}
@@ -76,8 +73,8 @@ export const Navbar: React.FC = () => {
                 href={item.href}
                 className={`relative py-1 text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
                   isActive
-                    ? 'text-[#F5F2EB]'
-                    : 'text-[#9C968A] hover:text-[#E6E1D5]'
+                    ? "text-[#F5F2EB]"
+                    : "text-[#9C968A] hover:text-[#E6E1D5]"
                 }`}
               >
                 {item.name}
@@ -85,7 +82,7 @@ export const Navbar: React.FC = () => {
                   <motion.span
                     layoutId="activeUnderline"
                     className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C5A059]"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
               </a>
@@ -112,7 +109,11 @@ export const Navbar: React.FC = () => {
           className="md:hidden p-2 text-[#E6E1D5] hover:text-[#C5A059] focus:outline-none transition-colors"
           aria-label="Toggle Navigation Menu"
         >
-          {mobileMenuOpen ? <X className="w-5 h-5 text-[#C5A059]" /> : <Menu className="w-5 h-5" />}
+          {mobileMenuOpen ? (
+            <X className="w-5 h-5 text-[#C5A059]" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
         </button>
       </div>
 
@@ -121,10 +122,10 @@ export const Navbar: React.FC = () => {
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#0B0B0D]/98 backdrop-blur-2xl border-b border-[#C5A059]/20 px-6 pt-4 pb-8 overflow-hidden"
+            className="md:hidden bg-white/98 backdrop-blur-2xl px-6 pt-4 pb-8 overflow-hidden"
           >
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
@@ -132,7 +133,7 @@ export const Navbar: React.FC = () => {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm uppercase tracking-[0.2em] font-medium text-[#D6D1C4] hover:text-[#C5A059] py-2 border-b border-[#1C1D24] transition-colors"
+                  className="text-sm uppercase tracking-[0.2em] font-medium text-[#D6D1C4] hover:text-[#C5A059] py-2 transition-colors"
                 >
                   {item.name}
                 </a>

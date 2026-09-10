@@ -33,7 +33,7 @@ export const Education: React.FC = () => {
               text="Academic Education"
               color="#1E4738"
               shineColor="#C5A059"
-              speed={5}
+              speed={3.5}
             />
           </motion.h2>
         </div>
@@ -45,10 +45,10 @@ export const Education: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="glass-card rounded-none p-8 sm:p-10 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+            className="glass-card rounded-none p-8 sm:p-10 bg-white/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
           >
             <div className="flex items-start gap-5">
-              <div className="w-12 h-12 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#C5A059] flex-shrink-0">
                 <BookOpen className="w-6 h-6" />
               </div>
               <div>
@@ -59,18 +59,18 @@ export const Education: React.FC = () => {
                   <Building2 className="w-4 h-4 text-[#C5A059]" />
                   <span>{edu.institution}</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0B0D] border border-[#C5A059]/20 text-[#C5A059] text-xs font-mono">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EEE8] text-[#C5A059] text-xs font-mono">
                   <Clock className="w-3.5 h-3.5" />
                   <span>{edu.status}</span>
                 </div>
               </div>
             </div>
 
-            <div className="w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-[#C5A059]/15 text-right">
+            <div className="w-full sm:w-auto pt-4 sm:pt-0 text-right">
               <span className="text-xs font-mono text-[#9C968A] uppercase tracking-wider block mb-2">
                 Computer Science & Apps
               </span>
-              <span className="text-[11px] font-mono text-[#1E4738] bg-[#1E4738]/20 px-3 py-1 border border-[#1E4738]/40 uppercase tracking-widest inline-block text-[#2D5D4A]">
+              <span className="text-[11px] font-mono text-[#1E4738] bg-[#DDEBE1] rounded-full px-3 py-1 uppercase tracking-widest inline-block text-[#2D5D4A]">
                 IN PROGRESS
               </span>
             </div>

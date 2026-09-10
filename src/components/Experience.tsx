@@ -11,7 +11,7 @@ export const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="py-24 relative scroll-mt-16 bg-[#0B0B0D]/60 border-y border-[#C5A059]/15"
+      className="py-24 relative scroll-mt-16 bg-[#F0F3F0]/70"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
@@ -37,7 +37,7 @@ export const Experience: React.FC = () => {
               text="Training & Practical Experience"
               color="#1E4738"
               shineColor="#C5A059"
-              speed={5}
+              speed={3.5}
             />
           </motion.h2>
         </div>
@@ -56,11 +56,11 @@ export const Experience: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative glass-card rounded-none p-8 sm:p-10 border border-[#C5A059]/20 bg-[#121317]/80 overflow-hidden mb-8"
+            className="relative glass-card rounded-none p-8 sm:p-10 bg-white/80 overflow-hidden mb-8"
           >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#C5A059]/15">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-8">
               <div>
-                <span className="inline-block px-3 py-1 bg-[#0B0B0D] border border-[#C5A059]/30 text-[#C5A059] text-[11px] font-mono uppercase tracking-wider mb-3">
+                <span className="inline-block px-3 py-1 rounded-full bg-[#E5EEE8] text-[#C5A059] text-[11px] font-mono uppercase tracking-wider mb-3">
                   PRESENT ROLE
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#F5F2EB] mb-1">
@@ -72,11 +72,11 @@ export const Experience: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 text-xs font-mono text-[#9C968A]">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0B0B0D] border border-[#C5A059]/15">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F1F3F0]">
                   <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>{training.period}</span>
                 </span>
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0B0B0D] border border-[#C5A059]/15">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F1F3F0]">
                   <MapPin className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>{training.location}</span>
                 </span>
@@ -92,7 +92,7 @@ export const Experience: React.FC = () => {
                 {training.responsibilities.map((resp, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-4 bg-[#0B0B0D] border border-[#C5A059]/15"
+                    className="flex items-start gap-3 p-4 rounded-2xl bg-[#F1F3F0]"
                   >
                     <CheckCircle2 className="w-4 h-4 text-[#1E4738] mt-0.5 flex-shrink-0" />
                     <span className="text-xs text-[#D6D1C4] leading-relaxed font-light">
@@ -104,9 +104,9 @@ export const Experience: React.FC = () => {
             </div>
 
             {/* Certificate Badge */}
-            <div className="pt-6 border-t border-[#C5A059]/15 flex items-center justify-between">
+            <div className="pt-6 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                <div className="w-9 h-9 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#C5A059]">
                   <Award className="w-4 h-4" />
                 </div>
                 <div>
@@ -118,7 +118,7 @@ export const Experience: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <span className="text-[10px] font-mono px-3 py-1 bg-[#0B0B0D] text-[#C5A059] border border-[#C5A059]/20 uppercase tracking-widest">
+              <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-[#E5EEE8] text-[#C5A059] uppercase tracking-widest">
                 VERIFIED
               </span>
             </div>

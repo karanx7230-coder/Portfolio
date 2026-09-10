@@ -4,7 +4,6 @@ import { Mail, Phone, Copy, Check, MapPin } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import ShinyText from "./ReactBits/ShinyText";
-import ScrollReveal from "./ReactBits/ScrollReveal";
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -25,7 +24,7 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-28 relative scroll-mt-16 bg-[#0B0B0D]/80 border-t border-[#C5A059]/15"
+      className="py-28 relative scroll-mt-16 bg-[#F0F3F0]/70"
     >
       {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-radial-glow-bottom pointer-events-none" />
@@ -54,7 +53,7 @@ export const Contact: React.FC = () => {
               text="Let's Build Something"
               color="#1E4738"
               shineColor="#C5A059"
-              speed={5}
+              speed={3.5}
             />
           </motion.h2>
 
@@ -64,13 +63,6 @@ export const Contact: React.FC = () => {
           </p>
         </div>
 
-        <ScrollReveal
-          containerClassName="mb-8"
-          textClassName="text-[#1E4738]"
-          enableBlur={false}
-        >
-          Bring a thoughtful mobile idea into focus.
-        </ScrollReveal>
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
           {/* Email */}
@@ -79,10 +71,10 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
+            className="glass-card glass-card-hover rounded-none p-6 bg-white/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+              <div className="w-9 h-9 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#C5A059] mb-4">
                 <Mail className="w-4 h-4" />
               </div>
               <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
@@ -102,7 +94,7 @@ export const Contact: React.FC = () => {
               </a>
               <button
                 onClick={handleCopyEmail}
-                className="p-2 bg-[#0B0B0D] border border-[#C5A059]/30 text-[#9C968A] hover:text-[#C5A059] transition-colors"
+                className="p-2 rounded-full bg-[#F1F3F0] text-[#9C968A] hover:text-[#C5A059] transition-colors"
                 title="Copy Email"
               >
                 {copiedEmail ? (
@@ -120,10 +112,10 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
+            className="glass-card glass-card-hover rounded-none p-6 bg-white/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+              <div className="w-9 h-9 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#C5A059] mb-4">
                 <GithubIcon className="w-4 h-4" />
               </div>
               <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
@@ -138,7 +130,7 @@ export const Contact: React.FC = () => {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center py-2 px-3 bg-[#0B0B0D] hover:bg-[#1C1D24] border border-[#C5A059]/30 text-[#E6E1D5] hover:text-[#C5A059] font-mono text-xs uppercase tracking-wider transition-colors"
+              className="w-full text-center py-2 px-3 rounded-full bg-[#F1F3F0] hover:bg-[#E5EEE8] text-[#1D1D1F] hover:text-[#1E4738] font-mono text-xs uppercase tracking-wider transition-colors"
             >
               Repositories
             </a>
@@ -150,10 +142,10 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
+            className="glass-card glass-card-hover rounded-none p-6 bg-white/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+              <div className="w-9 h-9 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#C5A059] mb-4">
                 <LinkedinIcon className="w-4 h-4" />
               </div>
               <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
@@ -168,7 +160,7 @@ export const Contact: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center py-2 px-3 bg-[#0B0B0D] hover:bg-[#1C1D24] border border-[#C5A059]/30 text-[#E6E1D5] hover:text-[#C5A059] font-mono text-xs uppercase tracking-wider transition-colors"
+              className="w-full text-center py-2 px-3 rounded-full bg-[#F1F3F0] hover:bg-[#E5EEE8] text-[#1D1D1F] hover:text-[#1E4738] font-mono text-xs uppercase tracking-wider transition-colors"
             >
               Connect
             </a>
@@ -180,10 +172,10 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card glass-card-hover rounded-none p-6 border border-[#C5A059]/20 bg-[#121317]/80 flex flex-col justify-between"
+            className="glass-card glass-card-hover rounded-none p-6 bg-white/80 flex flex-col justify-between"
           >
             <div>
-              <div className="w-9 h-9 bg-[#0B0B0D] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-4">
+              <div className="w-9 h-9 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#C5A059] mb-4">
                 <Phone className="w-4 h-4" />
               </div>
               <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-[#9C968A] mb-1">
@@ -197,13 +189,13 @@ export const Contact: React.FC = () => {
             <div className="flex gap-2">
               <a
                 href={`tel:${PERSONAL_INFO.phone}`}
-                className="flex-1 text-center py-2 px-3 bg-[#0B0B0D] hover:bg-[#1C1D24] border border-[#C5A059]/30 text-[#E6E1D5] hover:text-[#C5A059] font-mono text-xs uppercase tracking-wider transition-colors"
+                className="flex-1 text-center py-2 px-3 rounded-full bg-[#F1F3F0] hover:bg-[#E5EEE8] text-[#1D1D1F] hover:text-[#1E4738] font-mono text-xs uppercase tracking-wider transition-colors"
               >
                 Call
               </a>
               <button
                 onClick={handleCopyPhone}
-                className="p-2 bg-[#0B0B0D] border border-[#C5A059]/30 text-[#9C968A] hover:text-[#C5A059] transition-colors"
+                className="p-2 rounded-full bg-[#F1F3F0] text-[#9C968A] hover:text-[#C5A059] transition-colors"
                 title="Copy Phone Number"
               >
                 {copiedPhone ? (
