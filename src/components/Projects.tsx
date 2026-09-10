@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { PROJECTS } from "../data/projects";
+import { PROJECTS, CONTRIBUTIONS } from "../data/projects";
 import type { Project } from "../data/projects";
 import { ProjectModal } from "./ProjectModal";
 import { SectionHeader } from "./SectionHeader";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
+import { AtomMark } from "./AtomMark";
 import { PERSONAL_INFO } from "../data/personalInfo";
 
 interface StudyContent {
@@ -153,6 +154,9 @@ const DeveloperCard: React.FC = () => {
       className="relative overflow-hidden rounded-[2rem] bg-[#0B0B0D] px-8 py-10 sm:px-12 sm:py-12 my-6"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(197,160,89,0.22)_0%,transparent_55%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -right-8 -bottom-10 opacity-25">
+        <AtomMark size={170} stroke="#C5A059" spinSeconds={26} />
+      </div>
       <div className="relative flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
         <div className="flex-1">
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-[#D4AF37]">
@@ -215,6 +219,63 @@ export const Projects: React.FC = () => {
             {i === 0 && <DeveloperCard />}
           </React.Fragment>
         ))}
+
+        {/* Client contributions — honest scope, no boxes */}
+        <div className="mt-6 border-t border-[#1D1D1F]/10 pt-12">
+          <motion.h3
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-serif text-2xl sm:text-3xl text-[#1D1D1F]"
+          >
+            Also contributed to
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C968A]"
+          >
+            Features & releases on real client apps — not full builds
+          </motion.p>
+          <div className="mt-8 border-t border-[#1D1D1F]/10">
+            {CONTRIBUTIONS.map((item, idx) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.06 }}
+                className="group grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 border-b border-[#1D1D1F]/10 py-6"
+              >
+                <div className="md:col-span-4 flex items-start gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1E4738]" />
+                  <div>
+                    <h4 className="font-serif text-xl text-[#1D1D1F] group-hover:text-[#1E4738] transition-colors">
+                      {item.app}
+                    </h4>
+                    <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#C5A059]">
+                      {item.role}
+                    </span>
+                  </div>
+                </div>
+                <ul className="md:col-span-8 space-y-2">
+                  {item.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-3 text-sm font-light leading-relaxed text-[#41474A]"
+                    >
+                      <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[#C5A059]" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <ProjectModal

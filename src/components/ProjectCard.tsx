@@ -38,7 +38,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Category Pill */}
         <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-mono text-[#1E4738]">
           <Layers className="w-3.5 h-3.5" />
-          <span>{project.category}</span>
+          <span>{project.category} </span>
         </div>
 
         {/* Hover Overlay Cue */}

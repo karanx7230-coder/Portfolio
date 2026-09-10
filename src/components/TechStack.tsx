@@ -118,7 +118,8 @@ export const TechStack: React.FC = () => {
 
                 <div className="md:col-span-4 flex items-start gap-4">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A059]" />
-                  <span className="w-11 h-11 shrink-0 rounded-full bg-gradient-to-br from-[#E5EEE8] to-white ring-1 ring-[#C5A059]/25 flex items-center justify-center text-[#1E4738] shadow-sm transition-all duration-300 group-hover:bg-[#1E4738] group-hover:text-white group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[0_12px_24px_-10px_rgba(30,71,56,0.6)]">
+                  <span className="relative w-11 h-11 shrink-0 rounded-full bg-gradient-to-br from-[#E5EEE8] to-white ring-1 ring-[#C5A059]/25 flex items-center justify-center text-[#1E4738] shadow-sm transition-all duration-300 group-hover:bg-[#1E4738] group-hover:text-white group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[0_12px_24px_-10px_rgba(30,71,56,0.6)]">
+                    <span aria-hidden="true" className="absolute -inset-1.5 rounded-full border border-dashed border-[#C5A059]/60 opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 animate-spin-slower transition-all duration-500" />
                     <IconComponent className="w-[18px] h-[18px]" />
                   </span>
                   <div>

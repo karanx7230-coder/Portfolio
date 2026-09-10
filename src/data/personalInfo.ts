@@ -16,7 +16,7 @@ export const PERSONAL_INFO = {
     role: "React Native Trainee",
     company: "Apptechies",
     location: "Mohali, Punjab, India",
-    period: "April 2026 – Present",
+    period: "March 2026 – September 2026",
     responsibilities: [
       "Building reusable UI components with React Native, Expo, and TypeScript",
       "Implementing authentication, forms, listings, and nested navigation",

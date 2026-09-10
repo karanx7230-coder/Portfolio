@@ -41,6 +41,32 @@
   .cursor-follower { display: none; }
 }
 
+/* Motion utilities */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes spin-slower {
+  to { transform: rotate(360deg); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-spin-slower {
+  animation: spin-slower 14s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-spin-slower { animation: none; }
+}
+
 /* Background Grid & Vignette */
 .bg-grid-pattern {
   background-size: 40px 40px;

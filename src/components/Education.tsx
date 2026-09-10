@@ -69,7 +69,7 @@ export const Education: React.FC = () => {
 
             <div className="w-full sm:w-auto pt-4 sm:pt-0 text-right">
               <span className="text-xs font-mono text-[#9C968A] uppercase tracking-wider block mb-2">
-                Computer Science & Apps
+                Computer Science
               </span>
               <span className="text-[11px] font-mono text-[#1E4738] bg-[#DDEBE1] rounded-full px-3 py-1 uppercase tracking-widest inline-block text-[#2D5D4A]">
                 IN PROGRESS

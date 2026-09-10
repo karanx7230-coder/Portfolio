@@ -173,9 +173,9 @@ export const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.06 }}
-              className="flex items-center gap-4 border-b border-[#1D1D1F]/10 py-5"
+              className="group flex items-center gap-4 border-b border-[#1D1D1F]/10 py-5 px-2 -mx-2 rounded-xl transition-colors duration-300 hover:bg-white/70"
             >
-              <span className="w-10 h-10 shrink-0 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#1E4738]">
+              <span className="w-10 h-10 shrink-0 rounded-full bg-[#E5EEE8] flex items-center justify-center text-[#1E4738] transition-all duration-300 group-hover:bg-[#1E4738] group-hover:text-white group-hover:scale-110 group-hover:-rotate-12">
                 {row.icon}
               </span>
               <div className="flex-1 min-w-0">

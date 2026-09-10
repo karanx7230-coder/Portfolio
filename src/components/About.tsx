@@ -159,8 +159,9 @@ export const About: React.FC = () => {
                 <div className="sm:col-span-5 flex items-center gap-4">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A059] transition-transform duration-300 group-hover:scale-150" />
                   <span
-                    className={`w-10 h-10 rounded-full bg-gradient-to-br from-[#E5EEE8] to-white ring-1 ring-[#C5A059]/25 ${card.accent} flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-[#1E4738] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6`}
+                    className={`relative w-10 h-10 rounded-full bg-gradient-to-br from-[#E5EEE8] to-white ring-1 ring-[#C5A059]/25 ${card.accent} flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-[#1E4738] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6`}
                   >
+                    <span aria-hidden="true" className="absolute -inset-1.5 rounded-full border border-dashed border-[#C5A059]/60 opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 animate-spin-slower transition-all duration-500" />
                     <Icon className="w-4 h-4" />
                   </span>
                   <h3 className="font-serif text-xl text-[#1D1D1F] decoration-[#C5A059]/60 decoration-2 underline-offset-4 group-hover:underline">

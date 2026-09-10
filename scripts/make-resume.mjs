@@ -62,7 +62,7 @@ bullets([
 heading("Training Experience");
 doc.font("Helvetica-Bold").fontSize(10).fillColor(INK)
   .text("React Native Trainee  |  Apptechies, Mohali", { continued: true })
-  .font("Helvetica-Oblique").text("    April 2026 \u2013 Present");
+  .font("Helvetica-Oblique").text("    March 2026 \u2013 September 2026");
 doc.moveDown(0.4);
 bullets([
   "Develop responsive and reusable cross-platform mobile UI components using React Native, Expo, and TypeScript.",
