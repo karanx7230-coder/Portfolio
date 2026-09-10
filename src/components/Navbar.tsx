@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md py-4 shadow-2xl"
+          ? "bg-white/90 backdrop-blur-md py-4 shadow-[0_18px_40px_-24px_rgba(30,71,56,0.35)] border-b border-[#C5A059]/15"
           : "bg-transparent py-6"
       }`}
     >
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
           className="group flex items-center gap-3 focus:outline-none"
         >
           <span className="h-3 w-[1px] bg-[#C5A059]/30 hidden sm:inline-block" />
-          <span className="text-xs uppercase tracking-[0.25em] text-[#9C968A] group-hover:text-[#E6E1D5] transition-colors duration-300 hidden sm:inline-block">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#59605D] group-hover:text-[#1E4738] transition-colors duration-300 hidden sm:inline-block">
             {PERSONAL_INFO.name}
           </span>
         </a>
@@ -73,8 +73,8 @@ export const Navbar: React.FC = () => {
                 href={item.href}
                 className={`relative py-1 text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
                   isActive
-                    ? "text-[#F5F2EB]"
-                    : "text-[#9C968A] hover:text-[#E6E1D5]"
+                    ? "text-[#1E4738]"
+                    : "text-[#59605D] hover:text-[#1D1D1F]"
                 }`}
               >
                 {item.name}
@@ -90,8 +90,18 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Minimal Social Link */}
+        {/* Status + Social Links */}
         <div className="hidden md:flex items-center gap-4">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E4738] text-white font-mono text-[10px] uppercase tracking-[0.18em] shadow-[0_10px_25px_-12px_rgba(30,71,56,0.8)] hover:bg-[#2D5D4A] transition-colors"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF37]" />
+            </span>
+            <span>{PERSONAL_INFO.availability}</span>
+          </a>
           <a
             href={PERSONAL_INFO.github}
             target="_blank"
@@ -106,7 +116,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#E6E1D5] hover:text-[#C5A059] focus:outline-none transition-colors"
+          className="md:hidden p-2 text-[#1D1D1F] hover:text-[#C5A059] focus:outline-none transition-colors"
           aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? (
@@ -125,7 +135,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/98 backdrop-blur-2xl px-6 pt-4 pb-8 overflow-hidden"
+            className="md:hidden bg-white/95 backdrop-blur-2xl px-6 pt-4 pb-8 overflow-hidden border-b border-[#C5A059]/15"
           >
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
@@ -133,12 +143,24 @@ export const Navbar: React.FC = () => {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm uppercase tracking-[0.2em] font-medium text-[#D6D1C4] hover:text-[#C5A059] py-2 transition-colors"
+                  className="text-sm uppercase tracking-[0.2em] font-medium text-[#1D1D1F] hover:text-[#C5A059] py-2 transition-colors"
                 >
                   {item.name}
                 </a>
               ))}
-              <div className="pt-2 flex items-center justify-between">
+              <div className="pt-2 flex flex-col gap-3">
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#1E4738] text-white font-mono text-[11px] uppercase tracking-[0.18em]"
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF37]" />
+                  </span>
+                  <span>{PERSONAL_INFO.availability}</span>
+                </a>
+                <div className="flex items-center justify-between">
                 <a
                   href={PERSONAL_INFO.github}
                   target="_blank"
@@ -156,6 +178,7 @@ export const Navbar: React.FC = () => {
                   LinkedIn <ArrowUpRight className="w-3 h-3 text-[#C5A059]" />
                 </a>
               </div>
+            </div>
             </div>
           </motion.div>
         )}

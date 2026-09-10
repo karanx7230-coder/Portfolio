@@ -1,9 +1,8 @@
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { PERSONAL_INFO } from "../data/personalInfo";
 
 export const CreativeVisualShowcase: React.FC = () => {
-  const reduceMotion = useReducedMotion();
 
   return (
     <div

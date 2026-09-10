@@ -54,7 +54,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div>
           <h3
             onClick={() => onOpenModal(project)}
-            className="font-serif text-2xl sm:text-3xl font-normal text-[#F5F2EB] cursor-pointer group-hover:text-[#C5A059] transition-colors duration-300 mb-2"
+            className="font-serif text-2xl sm:text-3xl font-normal text-[#1D1D1F] cursor-pointer group-hover:text-[#C5A059] transition-colors duration-300 mb-2"
           >
             {project.title}
           </h3>
@@ -65,7 +65,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </p>
           )}
 
-          <p className="text-[#D6D1C4] text-sm leading-relaxed mb-6 font-light line-clamp-3">
+          <p className="text-[#59605D] text-sm leading-relaxed mb-6 font-light line-clamp-3">
             {project.description}
           </p>
 

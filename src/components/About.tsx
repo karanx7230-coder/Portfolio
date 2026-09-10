@@ -8,12 +8,12 @@ import {
   MapPin,
   Calendar,
   Award,
+  Star,
 } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import BlurText from "./ReactBits/BlurText";
 import ShinyText from "./ReactBits/ShinyText";
 import ScrollReveal from "./ReactBits/ScrollReveal";
-import { StyleFlexShowcase } from "./StyleFlexShowcase";
 
 const highlightCards = [
   {
@@ -53,7 +53,7 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative scroll-mt-16">
+    <section id="about" className="py-28 sm:py-32 relative scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Title */}
         <div className="flex flex-col items-start mb-16">
@@ -62,9 +62,10 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
           >
-            01 • ABOUT
+            <Star className="w-3.5 h-3.5 fill-[#C5A059]" />
+            About
           </motion.span>
 
           <motion.h2
@@ -72,7 +73,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
+            className="font-serif text-3xl sm:text-5xl font-normal text-[#1D1D1F] tracking-tight"
           >
             <ShinyText
               text="React Native Developer based in Mohali"
@@ -106,15 +107,15 @@ export const About: React.FC = () => {
 
               {/* Verified Metadata Tags */}
               <div className="flex flex-wrap gap-4 text-xs font-mono text-[#9C968A] pt-4">
-                <span className="flex items-center gap-2 bg-[#F1F3F0] rounded-full px-3.5 py-1.5 text-[#D6D1C4]">
+                <span className="flex items-center gap-2 bg-[#F1F3F0] rounded-full px-3.5 py-1.5 text-[#59605D]">
                   <MapPin className="w-3.5 h-3.5 text-[#C5A059]" />{" "}
                   {PERSONAL_INFO.location}
                 </span>
-                <span className="flex items-center gap-2 bg-[#F1F3F0] rounded-full px-3.5 py-1.5 text-[#D6D1C4]">
+                <span className="flex items-center gap-2 bg-[#F1F3F0] rounded-full px-3.5 py-1.5 text-[#59605D]">
                   <Calendar className="w-3.5 h-3.5 text-[#C5A059]" /> 6 Months
                   Practical Training
                 </span>
-                <span className="flex items-center gap-2 bg-[#F1F3F0] rounded-full px-3.5 py-1.5 text-[#D6D1C4]">
+                <span className="flex items-center gap-2 bg-[#F1F3F0] rounded-full px-3.5 py-1.5 text-[#59605D]">
                   <Award className="w-3.5 h-3.5 text-[#C5A059]" /> Trainee @
                   Apptechies
                 </span>
@@ -136,7 +137,7 @@ export const About: React.FC = () => {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs font-mono rounded-full bg-[#F1F3F0] text-[#D6D1C4]"
+                    className="px-3 py-1 text-xs font-mono rounded-full bg-[#F1F3F0] text-[#59605D]"
                   >
                     {tag}
                   </span>
@@ -154,41 +155,50 @@ export const About: React.FC = () => {
         >
           About
         </ScrollReveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-4 border-t border-[#1D1D1F]/10">
           {highlightCards.map((card, idx) => {
             const Icon = card.icon;
             return (
               <motion.div
                 key={card.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group glass-card glass-card-hover rounded-none p-6 flex flex-col justify-between"
+                transition={{ duration: 0.55, delay: idx * 0.06 }}
+                className="group grid grid-cols-1 sm:grid-cols-12 gap-4 items-start border-b border-[#1D1D1F]/10 py-7"
               >
-                <div>
-                  <div
-                    className={`w-10 h-10 rounded-full bg-[#F1F3F0] ${card.accent} flex items-center justify-center mb-5`}
+                <div className="sm:col-span-5 flex items-center gap-4">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A059]" />
+                  <span
+                    className={`w-10 h-10 rounded-full bg-[#E5EEE8] ${card.accent} flex items-center justify-center shrink-0`}
                   >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal text-[#F5F2EB] mb-2 group-hover:text-[#C5A059] transition-colors">
+                    <Icon className="w-4 h-4" />
+                  </span>
+                  <h3 className="font-serif text-xl text-[#1D1D1F]">
                     {card.title}
                   </h3>
-                  {card.title === "Mobile UI" ? (
-                    <StyleFlexShowcase />
-                  ) : (
-                    <p className="text-xs text-[#9C968A] leading-relaxed font-light">
-                      {card.description}
-                    </p>
-                  )}
                 </div>
-
-                <div className="mt-8 pt-3 flex items-center justify-between text-[10px] font-mono text-[#9C968A]">
-                  <span className="uppercase tracking-wider">
-                    RESUME SUPPORTED
-                  </span>
-                  <span>✓</span>
+                <div className="sm:col-span-7">
+                  <p className="text-sm text-[#59605D] leading-relaxed font-light">
+                    {card.description}
+                  </p>
+                  {card.title === "Mobile UI" && (
+                    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                      {["Pixel-perfect", "Responsive", "60fps motion"].map(
+                        (point, pIdx, arr) => (
+                          <span
+                            key={point}
+                            className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[#1E4738]"
+                          >
+                            {point}
+                            {pIdx < arr.length - 1 && (
+                              <span className="h-1 w-1 rounded-full bg-[#C5A059]" />
+                            )}
+                          </span>
+                        ),
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             );

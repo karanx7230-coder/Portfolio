@@ -14,6 +14,40 @@ export interface Project {
   architectureHighlights?: string[];
 }
 
+export interface Contribution {
+  id: string;
+  app: string;
+  role: string;
+  points: string[];
+}
+
+export const CONTRIBUTIONS: Contribution[] = [
+  {
+    id: "gentlehold",
+    app: "GentleHold",
+    role: "Feature contributor — posts & journal",
+    points: [
+      "Built post create/get features with API fetching",
+      "Built journal create/get/edit flows with API integration",
+    ],
+  },
+  {
+    id: "truck-compliance",
+    app: "Truck Compliance",
+    role: "Release & build support",
+    points: [
+      "Assisted with TestFlight uploads",
+      "Resolved App Store review/upload errors and re-uploaded builds after fixes",
+    ],
+  },
+  {
+    id: "datepalop",
+    app: "DatePalop",
+    role: "UI contributor",
+    points: ["Handled UI changes and client-requested adjustments"],
+  },
+];
+
 export const PROJECTS: Project[] = [
   {
     id: "laza",

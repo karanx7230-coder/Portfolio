@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Award, CheckCircle2 } from "lucide-react";
+import { Calendar, MapPin, Award, CheckCircle2, Star } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import ShinyText from "./ReactBits/ShinyText";
 import ScrollReveal from "./ReactBits/ScrollReveal";
@@ -11,7 +11,7 @@ export const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="py-24 relative scroll-mt-16 bg-[#F0F3F0]/70"
+      className="py-28 sm:py-32 relative scroll-mt-16 bg-[#F0F3F0]/70"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
@@ -21,9 +21,10 @@ export const Experience: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
           >
-            04 • EXPERIENCE
+            <Star className="w-3.5 h-3.5 fill-[#C5A059]" />
+            Experience
           </motion.span>
 
           <motion.h2
@@ -31,7 +32,7 @@ export const Experience: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
+            className="font-serif text-3xl sm:text-5xl font-normal text-[#1D1D1F] tracking-tight"
           >
             <ShinyText
               text="Training & Practical Experience"
@@ -63,10 +64,10 @@ export const Experience: React.FC = () => {
                 <span className="inline-block px-3 py-1 rounded-full bg-[#E5EEE8] text-[#C5A059] text-[11px] font-mono uppercase tracking-wider mb-3">
                   PRESENT ROLE
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#F5F2EB] mb-1">
+                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#1D1D1F] mb-1">
                   {training.role}
                 </h3>
-                <p className="text-sm font-mono text-[#D6D1C4]">
+                <p className="text-sm font-mono text-[#59605D]">
                   {training.company}
                 </p>
               </div>
@@ -88,19 +89,16 @@ export const Experience: React.FC = () => {
               <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A059] mb-4">
                 Core Responsibilities & Technical Objectives
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <ul className="divide-y divide-[#1D1D1F]/10 border-y border-[#1D1D1F]/10">
                 {training.responsibilities.map((resp, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 p-4 rounded-2xl bg-[#F1F3F0]"
-                  >
+                  <li key={i} className="flex items-start gap-3 py-4">
                     <CheckCircle2 className="w-4 h-4 text-[#1E4738] mt-0.5 flex-shrink-0" />
-                    <span className="text-xs text-[#D6D1C4] leading-relaxed font-light">
+                    <span className="text-sm text-[#1D1D1F] leading-relaxed font-light">
                       {resp}
                     </span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* Certificate Badge */}
@@ -110,7 +108,7 @@ export const Experience: React.FC = () => {
                   <Award className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-[#F5F2EB]">
+                  <div className="text-xs font-semibold text-[#1D1D1F]">
                     {training.certificateTitle}
                   </div>
                   <div className="text-[11px] font-mono text-[#9C968A]">

@@ -28,7 +28,7 @@ function App() {
           chapter="Keep going"
           eyebrow="The proof"
           title="But what can he actually build?"
-          hint="Scroll — two full apps are waiting below"
+          hint="Scroll — two full resume builds are waiting below"
         />
         <CinematicSection index={2}>
           <StatsBand />
@@ -39,8 +39,8 @@ function App() {
         <CuriosityDivider
           chapter="Don't stop"
           eyebrow="Real work"
-          title="Okay — but where's the shipped proof?"
-          hint="Case studies with auth, feeds, cart & DMs"
+          title="Two builds, real features throughout"
+          hint="Auth, feeds, cart & DMs — code + APK on GitHub"
         />
         <CinematicSection index={4}>
           <Projects />

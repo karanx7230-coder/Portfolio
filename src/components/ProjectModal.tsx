@@ -62,7 +62,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </div>
               <button
                 onClick={onClose}
-                className="p-2 bg-[#121317] text-[#9C968A] hover:text-[#F5F2EB] transition-all focus:outline-none"
+                className="p-2 bg-[#121317] text-[#9C968A] hover:text-[#1D1D1F] transition-all focus:outline-none"
                 aria-label="Close Case Study"
               >
                 <X className="w-4 h-4" />
@@ -87,7 +87,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   <Layers className="w-3.5 h-3.5" />
                   <span>{project.category}</span>
                 </div>
-                <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#F5F2EB] mb-2">
+                <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#1D1D1F] mb-2">
                   {project.title}
                 </h2>
                 {project.subtitle && (
@@ -95,7 +95,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     {project.subtitle}
                   </p>
                 )}
-                <p className="text-[#D6D1C4] text-base leading-relaxed font-light">
+                <p className="text-[#59605D] text-base leading-relaxed font-light">
                   {project.description}
                 </p>
               </div>
@@ -131,7 +131,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#F1F3F0]"
                     >
                       <CheckCircle2 className="w-4 h-4 text-[#1E4738] mt-0.5 flex-shrink-0" />
-                      <span className="text-xs text-[#D6D1C4] leading-normal font-light">
+                      <span className="text-xs text-[#59605D] leading-normal font-light">
                         {feature}
                       </span>
                     </div>
@@ -145,7 +145,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A059] mb-3">
                     Implementation & Architecture Highlights
                   </h3>
-                  <ul className="space-y-2 text-xs text-[#D6D1C4] font-light">
+                  <ul className="space-y-2 text-xs text-[#59605D] font-light">
                     {project.architectureHighlights.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2">
                         <span className="text-[#C5A059] font-mono">•</span>

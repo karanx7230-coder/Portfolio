@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Clock, Building2 } from "lucide-react";
+import { BookOpen, Clock, Building2, Star } from "lucide-react";
 import { PERSONAL_INFO } from "../data/personalInfo";
 import ShinyText from "./ReactBits/ShinyText";
 
@@ -8,7 +8,7 @@ export const Education: React.FC = () => {
   const edu = PERSONAL_INFO.education;
 
   return (
-    <section id="education" className="py-24 relative scroll-mt-16">
+    <section id="education" className="py-28 sm:py-32 relative scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16">
@@ -17,9 +17,10 @@ export const Education: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#C5A059] mb-3"
           >
-            05 • ACADEMICS
+            <Star className="w-3.5 h-3.5 fill-[#C5A059]" />
+            Academics
           </motion.span>
 
           <motion.h2
@@ -27,7 +28,7 @@ export const Education: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-5xl font-normal text-[#F5F2EB] tracking-tight"
+            className="font-serif text-3xl sm:text-5xl font-normal text-[#1D1D1F] tracking-tight"
           >
             <ShinyText
               text="Academic Education"
@@ -52,10 +53,10 @@ export const Education: React.FC = () => {
                 <BookOpen className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-serif text-2xl font-normal text-[#F5F2EB] mb-1">
+                <h3 className="font-serif text-2xl font-normal text-[#1D1D1F] mb-1">
                   {edu.degree}
                 </h3>
-                <div className="flex items-center gap-2 text-sm text-[#D6D1C4] mb-3 font-mono">
+                <div className="flex items-center gap-2 text-sm text-[#59605D] mb-3 font-mono">
                   <Building2 className="w-4 h-4 text-[#C5A059]" />
                   <span>{edu.institution}</span>
                 </div>
